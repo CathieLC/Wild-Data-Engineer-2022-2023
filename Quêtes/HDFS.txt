@@ -1,2 +1,0 @@
-[maria_dev@sandbox-hdp home]$ hadoop fs -mkdir pekemon-data  
-[maria_dev@sandbox-hdp home]$ hadoop fs -ls 
