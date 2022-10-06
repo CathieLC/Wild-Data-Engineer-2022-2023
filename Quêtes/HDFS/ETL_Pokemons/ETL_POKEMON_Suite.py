@@ -5,7 +5,6 @@ from mrjob.step import MRStep
 
 
 class Types_count(MRJob):
-
     def steps(self):
 
         return [
