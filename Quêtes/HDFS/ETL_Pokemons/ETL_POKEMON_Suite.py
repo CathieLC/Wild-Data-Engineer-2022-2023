@@ -21,13 +21,11 @@ class Types_count(MRJob):
 
     def mapper_get_types(self, _, line):
 
-        (pokemonId,pokemonName,pokemonType1,pokemonType2,HP,Attack,Defense,SpAttack,SpDef,Speed,Generation,Lengendary) = line.split(',')
+        (Id,Name,Type1,Type2,HP,Attack,Defense,SpAttack,SpDef,Speed,Generation,Lengendary) = line.split(',')
 
-        if pokemonId != "#":
+        if Id != "#":
 
-                yield (pokemonType1, (1, Defense))
-
-                
+                yield (Type1, (1, Defense))
 
 
     def reducer_types(self, key, values):
