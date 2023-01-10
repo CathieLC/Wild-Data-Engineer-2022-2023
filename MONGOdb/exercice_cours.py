@@ -19,19 +19,27 @@ sort_score = collection.find().sort("grades.score",-1)
 for x in sort_score :
     print(x)
 
-# Ecris une requête qui trouve tous les restaurants dans lesquels les noms des villes commencent par la lettre “B”, “C” ou “D”, ou se terminent par une voyelle sauf “y”
-#rest_B = collection.find({'borough': '/B|^C/'})
-restaurant = collection.find({ "borough": { '$regex': '/B|^C/' } })
 
-for document in restaurant:
-    pprint.pprint(document)
-    print()
+restaurant = collection.find({'borough':'/^B/'})
+pprint.pprint(restaurant)    
 
 
-for x in restaurant :
-    print(x)
+
+
+liste = collection.distinct("borough")
+restaurant = liste.find
+
 
 # Ecris une requête qui affiche tous les restaurants si et seulement si le score est inférieur à 20 ou égale à 25, 30, 35 et 40 (n’oubliez pas de préciser que la vérification se fasse sur chaque instance)
+score = collection.find({    
+    "grades.score" : 
+        {'$lt' : 20,
+         '$eq': [25,30,35,40]}
+         })
+
+for x in score :
+    print(x)
+
 
 # Ecris une requête qui fait la somme du nombre de restaurants par type de cuisine
 
@@ -47,7 +55,7 @@ varUnwind = {'$unwind' : "$grades"}
 varGroup4 = { '$group': {"_id" : "$borough", "moyenne" : {'$avg' : "$grades.score"} } }
 varSort2 = {'$sort' : { "moyenne" : -1 } }
 
-result = accounts_collection.aggregate( [ varUnwind, varGroup4, varSort2 ] )
+result = collection.aggregate( [ varUnwind, varGroup4, varSort2 ] )
 
 for i in result:
     print(i)

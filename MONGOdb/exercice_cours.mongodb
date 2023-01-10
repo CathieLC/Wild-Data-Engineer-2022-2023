@@ -1,0 +1,24 @@
+use("mabdd")
+
+
+// Trouver le nombre de grades A
+db.restaurants.count_documents({grades.grade: 'A'})
+
+
+
+
+// Ecris une requête qui trouve tous les restaurants dans lesquels les noms des villes commencent par la lettre “B”, “C” ou “D”, ou se terminent par une voyelle sauf “y”
+//db.restaurants.find({borough: '/^B/'|'/^C/'})
+
+
+//db.restaurants.find({})
+
+
+/* db.restaurants.find({    
+    "grades.score" : 
+        {'$lt' : 20,
+         '$eq': [25,30,35,40]}
+         })
+         */
+
+db.restaurants.find({$or: [{borough: /^B/}, {borough: /^C/}, {borough: /^D/}, {borough: /[aeiou]$/}]})
