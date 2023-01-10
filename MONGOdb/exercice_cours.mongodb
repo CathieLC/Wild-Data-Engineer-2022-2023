@@ -1,8 +1,10 @@
-use("mabdd")
+use("mabdd");
 
+db.restaurants.find( {} );
 
 // Trouver le nombre de grades A
-db.restaurants.count_documents({grades.grade: 'A'})
+
+
 
 
 

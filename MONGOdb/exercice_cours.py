@@ -24,14 +24,14 @@ restaurant = collection.find({'borough':'/^B/'})
 pprint.pprint(restaurant)    
 
 
-
-
 liste = collection.distinct("borough")
 restaurant = liste.find
 
 
 # Ecris une requête qui affiche tous les restaurants si et seulement si le score est inférieur à 20 ou égale à 25, 30, 35 et 40 (n’oubliez pas de préciser que la vérification se fasse sur chaque instance)
-score = collection.find({    
+#score = 
+
+collection.find({    
     "grades.score" : 
         {'$lt' : 20,
          '$eq': [25,30,35,40]}
