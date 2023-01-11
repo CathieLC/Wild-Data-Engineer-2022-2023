@@ -1,0 +1,26 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('mabdd');
+
+// Run a find command to view items sold on April 4th, 2014.
+db.Restaurants.find({grade : "B"}).limit(1);
+
+db.getCollection("Restaurants").find()
+
+db.Restaurants.find({  }).limit(2);
+
+
+// Trouver le nombre de grades A
+/*db.Restaurants.aggregate( [
+    { $match: {grades.grade: "A"} } ,
+    { $count: "Count_Name_A" } ] );*/
+
+// Ecris une requête qui trouve tous les restaurants dans lesquels les noms des villes commencent par la lettre “B”, “C” ou “D”, ou se terminent par une voyelle sauf “y”
+//db.Restaurants.find({$or: [{borough: /^B/}, {borough: /^C/}, {borough: /^D/}, {borough: /[aeiou]$/}]});
+
+db.Restaurants.find({grade : "B"})
+
