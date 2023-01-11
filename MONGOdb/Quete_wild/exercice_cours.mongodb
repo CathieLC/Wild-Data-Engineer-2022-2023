@@ -1,8 +1,9 @@
-use("mabdd")
+use("mabdd");
 
+db.Restaurants.find({});
 
 // Trouver le nombre de grades A
-db.restaurants.count_documents({grades.grade: 'A'})
+db.restaurants.count_documents({grades.grade: 'A'});
 
 
 
@@ -21,4 +22,4 @@ db.restaurants.count_documents({grades.grade: 'A'})
          })
          */
 
-db.restaurants.find({$or: [{borough: /^B/}, {borough: /^C/}, {borough: /^D/}, {borough: /[aeiou]$/}]})
+db.Restaurants.find({$or: [{borough: /^B/}, {borough: /^C/}, {borough: /^D/}, {borough: /[aeiou]$/}]})

@@ -1,15 +1,8 @@
-import pymongo
-import pprint
-
-#from dotenv import load_dotenv
 from pymongo import MongoClient
+import pprint
 
 # Import ObjectId from bson package (part of Pymongo distribution) to enable querying by ObjectId
 from bson.objectid import ObjectId
-
-'''# load config from .env file
-load_dotenv()
-MONGODB_URI = os.environ['MONGODB_URI']'''
 
 # connect to MongoDb Cluster with Mongoclient
 client = MongoClient()
