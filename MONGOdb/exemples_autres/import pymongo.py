@@ -1,8 +1,8 @@
 import pymongo
 
 connection = pymongo.MongoClient()
-db = connection.GFG
-col = db.lecture
+db = connection.mabdd
+col = db.Restaurants
 
 # This is a cursor instance
 cur = col.find()

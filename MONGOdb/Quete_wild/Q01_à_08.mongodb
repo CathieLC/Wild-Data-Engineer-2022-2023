@@ -1,0 +1,27 @@
+use("mabdd");
+
+
+// 1-Trouver le nombre de grades A
+//count_A = db.Restaurants.countDocuments({"grades.grade" : "A"});
+//print("The result of Grade A is : ",count_A);
+
+
+// 2-Ecris une requête qui trie tous les différents scores de restaurants en ordre décroissant
+//sort_desc_score = db.Restaurants.find({}).sort({"grades.score" : -1})
+//sort_desc_score;
+
+
+// 3-Ecris une requête qui trouve tous les restaurants dans lesquels les noms des villes commencent par la lettre “B”, “C” ou “D”,
+// ou se terminent par une voyelle sauf “y”
+
+//noms_villes = db.Restaurants.find({$or: [{borough: /^B/},
+                                         //{borough: /^C/}, 
+                                         //{borough: /^D/}, 
+                                         //{borough: /[aeiou]$/}]})
+//noms_villes
+
+//4-Ecris une requête qui affiche tous les restaurants si et seulement si le score est inférieur à 20 ou égale à 25, 30, 35 et 40
+// (n’oubliez pas de préciser que la vérification se fasse sur chaque instance)
+ restaurant_select = db.Restaurants.find({
+    $or : [{ "grades.score" : {"$lt" : 20}, {"$eq" :  [25,30,35,40]}}]})
+restaurant_select
