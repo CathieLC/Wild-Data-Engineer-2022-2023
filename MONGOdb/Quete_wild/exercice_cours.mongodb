@@ -24,3 +24,7 @@ db.restaurants.find( {} );
          */
 
 db.restaurants.find({$or: [{borough: /^B/}, {borough: /^C/}, {borough: /^D/}, {borough: /[aeiou]$/}]})
+
+
+
+//, {"grades.score" : {"$in" : [25}}

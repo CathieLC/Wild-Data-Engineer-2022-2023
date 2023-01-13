@@ -24,3 +24,7 @@ db.Restaurants.find({  }).limit(2);
 
 db.Restaurants.find({grade : "B"})
 
+
+//Documents imbriqués
+db.restaurants.find({"grades.grade" : {$eq : "A"}})
+
