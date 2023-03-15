@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les formulaires</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <li><a href="01_index.html">Accueil</a></li>
+            <li><a href="01_a_propos.html">À propos</a></li>
+            <li><a href="05_contact.html">Contact</a></li>
+        </nav>
+    </header>
+
+    <br>
+
+    <main>
+        <h1>Me contacter</h1>
+        <form action="/adoption-demand" method="post">
+            <label>What's your firstname ?
+                <input type="text"> <br><br>
+                What's your lastname ? 
+                <input type="text"> <br><br>
+                What's your phone number ?   
+                <input type="text"> <br><br>
+                What's your email adress ?   
+                <input type="email"required> <br><br>
+                What's your birthday?
+                <input type="date"><br><br>
+                Choose your Password: 
+                <input type="password"></label><br><br>
+                S'inscrire à la newsletter 
+                <input type="checkbox" value="newsletter">
+            </label>
+            <fieldset>
+                <legend>Veuillez choisir vos skills :</legend>
+                  <input type="checkbox" id="webdev" name="interest" value="coding">
+                  <label for="webdev">Developpement Web</label>
+                  <br>
+                  <input type="checkbox" id="engineering" name="interest" value="engineering">
+                  <label for="engineering">Ingénierie de la donnée</label>
+                  <br>
+                  <input type="checkbox" id="analyse" name="interest" value="analyse">
+                  <label for="analyse">Analyse de la donnée</label><br><br>
+              </fieldset>
+              <fieldset>
+                <legend>Quel est votre langage de programmation favori:</legend>
+                <input type="radio" id="javascript" name="favoriteLanguage" value="javascript">
+                <label for="javascript">JavaScript</label>
+                <br>
+                <input type="radio" id="python" name="favoriteLanguage" value="python">
+                <label for="python">Python</label>
+                <br>
+                <input type="radio" id="java" name="favoriteLanguage" value="java">
+                <label for="java">Java</label>
+            </fieldset>
+                <input type="range" id="volume" name="volume" min="0" max="11">
+                <label for="volume">Volume</label><br><br>
+                <label for="pet-select">Informations</label>
+                    <select name="pets" id="pet-select">
+                        <option value="">--Veuillez choisir une option--</option>
+                        <option value="info">Information sur mes prestations</option>
+                        <option value="problem">Problème avec mon site internet</option>
+                        <option value="nopthing">Tout va bien, je veux juste laisser un mot</option>
+                    </select><br><br>
+                <label>Ecrivez votre message:
+                    <textarea id="message" name="message" rows="10" cols="200" maxlength="1000" wrap>Tapez votre message ici...</textarea>
+                </label><br><br>
+                <input type="submit" value="Valider ma demande de contact & mon inscription">              
+        </form>
+    </main>  
+    
+    <footer>
+        <p>@Copycathie 2023</p>
+    </footer>
+</body>
+</html>

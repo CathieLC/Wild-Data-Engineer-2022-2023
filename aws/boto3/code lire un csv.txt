@@ -1,0 +1,58 @@
+LIRE UN FICHIER CSV
+
+import csv
+import json
+import boto3
+
+s3 = boto3.client('s3')
+
+def lambda_handler(event, context):
+    # Récupérer le nom du fichier à partir de l'événement déclencheur
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    key = event['Records'][0]['s3']['object']['key']
+
+    # Télécharger le fichier CSV depuis S3
+    response = s3.get_object(Bucket=bucket, Key=key)
+    content = response['Body'].read().decode('utf-8')
+
+    # Lire le fichier CSV
+    reader = csv.DictReader(content.splitlines())
+    rows = list(reader)
+
+    # Convertir les données en JSON et les renvoyer
+    return {
+        'statusCode': 200,
+        'body': json.dumps(rows)
+    }
+
+
+COMPTER LES LIGNES D'UN FICHIER CSV
+Pour compter les lignes d'un fichier CSV avec une Lambda Function, vous pouvez utiliser le module csv de Python en combinaison avec la fonction len() pour compter le nombre de lignes. Voici un exemple de code Python qui lit un fichier CSV et renvoie le nombre de lignes:
+
+import csv
+import json
+import boto3
+
+s3 = boto3.client('s3')
+
+def lambda_handler(event, context):
+    # Récupérer le nom du fichier à partir de l'événement déclencheur
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    key = event['Records'][0]['s3']['object']['key']
+
+    # Télécharger le fichier CSV depuis S3
+    response = s3.get_object(Bucket=bucket, Key=key)
+    content = response['Body'].read().decode('utf-8')
+
+    # Lire le fichier CSV
+    reader = csv.reader(content.splitlines())
+    rows = list(reader)
+
+    # Compter le nombre de lignes
+    line_count = len(rows)
+
+    # Renvoyer le nombre de lignes
+    return {
+        'statusCode': 200,
+        'body': json.dumps({'line_count': line_count})
+    }

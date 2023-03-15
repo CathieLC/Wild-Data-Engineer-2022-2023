@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylecss04_flexbox.css">
+    <title>css04</title>
+</head>
+<body>
+    <h1>Use float and % to recreate the layout</h1>
+    <header class="header"></header>
+    <main class="container"></main>
+    <aside class="recommendation"></aside>
+    <footer class="footer"></footer>
+
+    <h1>Flexbox</h1>
+    <div class="bloc-container">
+        <div class="blocs1 bg-peru"></div>
+        <div class="blocs1 bg-turquoise"></div>
+        <div class="blocs1 bg-violetred"></div>
+    </div>
+    <h3>Pour aligner des éléments le long de l'axe principal, utilisez justify-content suivi d'une des valeurs suivantes :
+        <ul>
+            <li>flex-start alignera les éléments au début du conteneur</li>
+            <li>flex-end alignera les éléments à la fin du conteneur</li>
+            <li>center alignera les éléments au centre du conteneur</li>
+            <li>space-between repartiras les éléments du conteneur (sur l'axe principal)</li>
+            <li>space-around repartiras les éléments du conteneur et ajoutera un espace avant le premier et après le dernier élément</li>            
+        </ul>
+        <img src="flex_css.png">
+    </h3>
+    <h3>Pour aligner des éléments le long de l'axe principal, utilisez justify-content suivi d'une des valeurs suivantes :
+        <ul>
+            <li>stretch étirera les éléments le long de l'axe transversal</li>
+            <li>flex-start alignera les éléments au départ</li>
+            <li>flex-end alignera les éléments à la fin</li>
+            <li>center  alignera les éléments au centre</li>
+            <li>baseline s'alignera sur la ligne de base du conteneur</li>            
+        </ul>
+        <img src="flex_transversal.png">
+    </h3>
+    <h1>Space the element horizontally and center them vertically</h1>
+      <div class="bloc-container">
+        <div class="blocs2 bg-peru"></div>
+        <div class="blocs2 bg-turquoise"></div>
+        <div class="blocs2 bg-violetred"></div>
+      </div>
+    <h1>
+      Flexbox
+    </h1>
+    <div class="bloc-container">
+      <div class="blocs3 box-1"></div>
+      <div class="blocs3 box-2"></div>
+      <div class="blocs3 box-3"></div>
+    </div>
+
+    <h1>
+      Change the size of the bloc
+    </h1>
+    <ul>
+      <li>The first one should take 1</li>
+      <li>The second one should take 3</li>
+      <li>The third one should take 2</li>
+      <li>The fourth one should take 1</li>
+    </ul>
+    <div class="bloc-container">
+      <div class="blocs4 box-1-2"></div>
+      <div class="blocs4 box-2-2"></div>
+      <div class="blocs4 box-3-2"></div>
+      <div class="blocs4 box-4-2"></div>
+    </div>
+
+    <h1>
+      The elements should be in column and take the full width
+    </h1>
+    <div class="bloc-container2">
+      <div class="blocs5 bg-peru2"></div>
+      <div class="blocs5 bg-turquoise2"></div>
+      <div class="blocs5 bg-violetred2"></div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,125 @@
+.header {
+    height: 100px;
+    background-color: lavender;
+  }
+  
+  .container {
+    float: left;
+    width: 70%;
+    height: 300px;
+    background-color: burlywood;
+  }
+  
+  .recommendation {
+    float: right;
+    width: 30%;
+    height: 300px;
+    background-color: lightcoral;
+  }
+  
+  .footer {
+    clear: both;
+    height: 100px;
+    background-color: lightgreen;
+  }
+
+
+  .blocs1 {
+    width: 100px;
+    height: 100px;
+  }
+  .bg-peru {
+    background-color: peru;
+  }
+  
+  .bg-turquoise {
+    background-color: paleturquoise;
+  }
+  .bg-violetred {
+    background-color: palevioletred;
+  }
+
+  .bloc-container {
+    display: flex;
+    border: solid black;
+    height: 350px;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .blocs2 {
+    width: 400px;
+    height: 300px;
+
+  }
+  .bg-peru {
+    background-color: peru;
+  }
+  
+  .bg-turquoise {
+    background-color: paleturquoise;
+  }
+  .bg-violetred {
+    background-color: palevioletred;
+  }
+  
+  .blocs3 {
+    height: 200px;
+  }
+  .box-1 {
+    flex: 1;
+    background-color: peru;
+  }
+  
+  .box-2 {
+    flex: 1;
+    background-color: paleturquoise;
+  }
+  .box-3 {
+    flex: 2;
+    background-color: palevioletred;
+  }
+
+  .blocs4 {
+    height: 200px;
+  }
+  .box-1-2 {
+    flex: 1;
+    background-color: peru;
+  }
+  
+  .box-2-2 {
+    flex: 3;
+    background-color: paleturquoise;
+  }
+  .box-3-2 {
+    flex: 2;
+    background-color: palevioletred;
+  }
+  
+  .box-4-2 {
+    flex: 1;
+    background-color: lightgray;
+  }
+
+
+  .bloc-container2 {
+    display: flex;
+    border: 1px solid black;
+    height: 500px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+  .blocs5 {
+    width: 100%;
+    height: 100px;
+  }
+  .bg-peru2 {
+    background-color: peru;
+  }  
+  .bg-turquoise2 {
+    background-color: paleturquoise;
+  }
+  .bg-violetred2 {
+    background-color: palevioletred;
+  }
