@@ -1,0 +1,5 @@
+- logo Airbnb
+- lien vers ok dans le dataset
+- icon - lien vers dataset
+- definir x catégories + apply de la regex sur la colone description "Appartement" - "Piscine" .... 
+- icon FAVORIS à intégrer aux cards logements
