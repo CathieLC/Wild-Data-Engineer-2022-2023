@@ -9,10 +9,11 @@
     {% if error %}
         <p>{{ error }}</p>
     {% else %}
-        <h1>{{ product.product_name }}</h1>
-        <p>{{ product.brands }}</p>
-        <p>{{ product.ingredients_text }}</p>
-        <p>{{ product.nutrition_grade_fr }}</p>
+        <h1>Nom du produit : {{ product.product_name }}</h1>
+        <img>{{ product.image_front_url }}
+        <p>Marque du produit : {{ product.brands }}</p>
+        <p>Ingrédients : {{ product.ingredients_text }}</p>
+        <p>Nutriscore : {{ product.nutrition_grade_fr }}</p>
     {% endif %}
 
 </body>

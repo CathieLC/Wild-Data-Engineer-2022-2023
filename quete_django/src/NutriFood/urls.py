@@ -21,5 +21,5 @@ from search.views import firstView, product_detail
 urlpatterns = [
     path("", firstView),
     path("admin/", admin.site.urls),
-    path('produit/<str:barcode>/', product_detail, name='product_detail'),
+    path('produit/<str:barcode>/', product_detail),
 ]
