@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>product detail</title>
+</head>
+<body>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <h1>{{ product.product_name }}</h1>
+        <p>{{ product.brands }}</p>
+        <p>{{ product.ingredients_text }}</p>
+        <p>{{ product.nutrition_grade_fr }}</p>
+    {% endif %}
+
+</body>
+</html>
