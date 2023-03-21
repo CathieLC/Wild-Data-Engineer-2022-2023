@@ -20,5 +20,4 @@ from search.views import firstView, ma_vue
 urlpatterns = [
     path("", firstView),
     path("admin/", admin.site.urls),
-    path("product_search/", ma_vue),
 ]
