@@ -1,20 +1,28 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>product detail</title>
+    <title>Product detail</title>
+    <link rel="stylesheet" href="{% static 'search/style.css' %}">
+
+
+
+
 </head>
 <body>
-
-    {% if error %}
-        <p>{{ error }}</p>
-    {% else %}
-        <h1>Nom du produit : {{ product.product_name }}</h1>
-        <img>{{ product.image_front_url }}
-        <p>Marque du produit : {{ product.brands }}</p>
-        <p>Ingrédients : {{ product.ingredients_text }}</p>
-        <p>Nutriscore : {{ product.nutrition_grade_fr }}</p>
-    {% endif %}
+    <div class="produit">
+        {% if error %}
+            <p>{{ error }}</p>
+        {% else %}
+            <h1>{{ product.product_name }}</h1>
+            <img src="{{ product.image_front_url }}">
+            <p>Marque du produit : {{ product.brands }}</p>
+            <p>Ingrédients : {{ product.ingredients_text }}</p>
+            <p>Nutriscore : {{ product.nutrition_grade_fr }}</p>
+        {% endif %}
+    </div>
 
 </body>
 </html>
