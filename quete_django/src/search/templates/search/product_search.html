@@ -6,7 +6,14 @@
 </head>
 <body>
 
-    <h1> {{ context }} </h1>
+  <h1>Proposer un produit de remplacement</h1>
+  <p>Saisissez les détails du produit de remplacement.</p>
+
+  <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ replacement_form.as_p }}
+        <button type="submit">Proposer le produit de remplacement</button>
+  </form>
 
 </body>
 </html>

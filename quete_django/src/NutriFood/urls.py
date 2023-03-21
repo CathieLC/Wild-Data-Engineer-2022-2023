@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from search.views import firstView, product_detail
+from search.views import firstView, product_detail, product_replacement, product_search
 
 
 urlpatterns = [
     path("", firstView),
     path("admin/", admin.site.urls),
     path('produit/<str:barcode>/', product_detail),
+    path('product-search/', product_search, name='product_search'),
+    path('product-replacement/confirmation/', product_replacement, name='product_replacement_confirmation'),
+
 ]
