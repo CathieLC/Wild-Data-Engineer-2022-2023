@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ product.title }}</h2>
+    <h3>{{ product.price }} €</h3>
+    <h4>{{ product.stock }} in stock</h4>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <p>{{ product.description }}</p>
+    {% if user.is_authenticated %}
+        <p>
+            <a href="{% url 'add-to-cart' product.slug %}">Ajouter au panier</a>
+        </p>
+    {% endif %}
+{% endblock %}

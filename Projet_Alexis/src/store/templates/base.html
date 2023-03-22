@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My super Shop</title>
+</head>
+{% block header %}
+{% endblock %}
+<body>
+    <nav>
+    <a href="{% url 'index' %}" ><h1>La boutique de sneakers</h1></a>
+    {% if user.is_authenticated %}
+        <h3>Salut {{ user.username }}, 👋 !</h3>
+        <a href="{% url 'logout' %}">Se déconnecter</a>
+    {% else %}
+        <p>
+            <a href="{% url 'login' %}">Se connecter</a>
+            |
+            <a href="{% url 'signup' %}">S'inscrire</a>
+        </p>
+    {% endif %}
+    {% if user.cart %} 
+        <p>
+            <a href="{% url 'cart' %}">Panier ({{ user.cart.orders.count }})</a>
+        </p>
+    {% endif %}
+    </nav>
+    
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

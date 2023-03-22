@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>Achetez la Sneakers qui vous ressemble !</p>
+    <ul>
+        {% for product in products %}
+            <!-- <a href="{% url 'product' product.slug %}"> -->
+            <a href="{{ product.get_absolute_url }}"> <!-- method in models -->
+                <h2>{{ product.title }}</h2>
+            </a>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        {% endfor %}
+    </ul>
+{% endblock %}
