@@ -3,7 +3,8 @@ from django.urls import path
 from shop.views import index, product_detail, add_to_cart, cart, delete_cart
 from django.conf.urls.static import static
 from django.conf import settings
-from accounts.views import signup, logout_user, login_user
+from accounts.views import signup, logout_user,login_user
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
