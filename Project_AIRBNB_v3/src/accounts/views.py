@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, login, logout, authenticate
 
+
 # Create your views here.
 
 def home(request):
@@ -9,6 +10,7 @@ def home(request):
 
 
 User = get_user_model()
+
 
 def signup(request):
     if request.method == "POST":
@@ -19,6 +21,7 @@ def signup(request):
         return redirect("login")
 
     return render(request, 'accounts/signup.html')
+
 
 def login_user(request):
     if request.method == "POST":
@@ -32,6 +35,11 @@ def login_user(request):
 
     return render(request, 'accounts/login.html')
 
+
 def logout_user(request):
     logout(request)
     return redirect("login")
+
+
+def login_register(request):
+    return render(request, 'account/login_register_modal.html')
