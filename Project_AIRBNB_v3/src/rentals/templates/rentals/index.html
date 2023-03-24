@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AirBnB Front Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+
+
+<body>
+
+
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow">
+    <div class="max-w-fit mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <a href="#" class="flex-shrink-0 flex items-center">
+            <img class="h-8 w-auto " src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="AirBnB Logo">
+          </a>
+        </div>
+          <form class="flex items-center">
+              <label for="simple-search" class="sr-only">N'importe ou</label>
+              <div class="flex items-center max-w-md mx-auto shadow rounded border-0 p-3">
+
+                  <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="N'importe où" required>
+                  <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Une semaine" required>
+                  <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ajouter des voyageurs" required>
+              </form>
+              <button type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-red-700 rounded-lg border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                  <span class="sr-only">Search</span>
+
+        </div>
+        <div class="hidden md:flex md:items-center md:space-x-6">
+          <a href="#" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Mon compte</a>
+          <a href="{% url 'logout' %}" class="bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium">Me déconnecter</a>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-600" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!-- Heroicon name: menu -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  <!-- Category Bar -->
+  <div class="bg-white py-4 ">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap overflow-auto">
+        <div class="flex items-center justify-between w-full">
+          <div class="flex items-center">
+            <div class="flex space-x-4 overflow">
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">All homes</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Apartments</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Barns</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Bed and breakfasts</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Boats</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Boutique hotels</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Bungalows</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Cabins</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Camper/RVs</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Campsites and camping</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Castles</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Caves</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Chalets</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Condominiums</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Cottages</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Domes</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Earth houses</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Farm stays</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Guesthouses</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Hostels</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Hotels</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Huts</a>
+                <a href="#" class="rounded-lg px-4 py-2 mr-4 hover:bg-gray-100">Islands</a>
+                <!-- Add more types of homes here -->
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- card rentals !-->
+<div class="grid grid-cols-6 gap-4 pt-10">
+
+    {% for obj in objs %}
+
+  <a href="#" class="block-card-img m-4">
+  <div class="max-w-md w-full rounded-lg overflow-hidden shadow-lg">
+    <img class="w-full h-48 object-cover" src="https://source.unsplash.com/random/800x600" alt="House Image">
+    <div class="px-6 py-4">
+      <span class="block rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">{{ obj.neighbourhood }}, Lyon</span>
+      <span class="block rounded-full px-3 py-1 text-sm font-semibold text-gray-400 mr-2">{{ obj.room_type }}</span>
+      <span class="block rounded-full px-3 py-1 text-sm font-semibold text-gray-400">{{ obj.minimum_nights }} nuit(s) minimum</span>
+      <span class="inline-block rounded-full px-3 py-1 text-sm font-bold text-black">{{ obj.price }} €</span> par nuit
+    </div>
+  </div>
+  </a>
+    {% endfor %}
+  </div>
+
+
+</body>
+</html>

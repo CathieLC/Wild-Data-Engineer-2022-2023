@@ -18,10 +18,14 @@ from django.urls import path
 
 from accounts.views import home
 
+from accounts.views import signup,login_user,logout_user
+from listing.views import price2
+
 urlpatterns = [
     path("", home, name="home"),
     path("admin/", admin.site.urls),
-    # path("signup/", signup, name="signup"),
-    # path("login/", login_user, name="login"),
-    # path("logout/", logout_user, name="logout"),
+    path("signup/", signup, name="signup"),
+    path("login/", login_user, name="login"),
+    path("logout/", logout_user, name="logout"),
+    path("first/", price2, name="price"),
 ]
