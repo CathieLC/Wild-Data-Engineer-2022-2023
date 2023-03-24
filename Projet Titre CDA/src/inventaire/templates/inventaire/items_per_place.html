@@ -1,0 +1,56 @@
+{% load static %}
+
+<link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'inventaire/css/bootstrap.css' %}"
+/>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>items_per_place</title>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Accueil</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'place' %}">Liste des pièces</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'inventaire-per-place' %}">Liste des articles</a>
+        </li>
+          </ul>
+
+    </div>
+            <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Rechercher</button>
+      </form>
+
+  </div>
+</nav>
+
+<!-- Récupérer la liste de mes articles pour chaque pièce !-->
+    <ul>
+        {% for item in type_place %}
+            <li>
+                {{ item.items }}
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

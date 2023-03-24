@@ -1,0 +1,57 @@
+{% load static %}
+
+<link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'inventaire/css/bootstrap.css' %}"
+/>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcul ton volume</title>
+</head>
+<body>
+
+<!--Bootstrap/barre de navigation!-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a href="{% url 'home' %}" class="btn btn-outline-primary">Accueil</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="btn btn-outline-primary" aria-current="page" href="{% url 'place' %}">Liste des pièces</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-primary" href="{% url 'inventaire-per-place' %}">Liste des articles</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--Back!-->
+    <ul>
+        <!-- Récupérer la liste de mes pièces !-->
+        {% for place in valeurs_distinctes %}
+
+            <li>
+                <!-- faire un lien sur chaque nom de pièce pour afficher la liste des items correspondants !-->
+                <a href="{% url 'inventaire-per-place' %}?place={{ place }}">
+                    {{ place }}
+                </a>
+            </li>
+
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

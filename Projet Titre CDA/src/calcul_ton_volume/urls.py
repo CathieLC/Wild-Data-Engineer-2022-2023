@@ -1,7 +1,7 @@
-"""airbnbv3 URL Configuration
+"""calcul_ton_volume URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+    https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,16 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from accounts.views import home, signup, login_user, logout_user
-from rentals.views import objet
+from inventaire.views import home, place, inventairePerPlace, pieces_with_img
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path("", home, name="home"),
-    path("signup/", signup, name="signup"),
-    path("login/", login_user, name="login"),
-    path("logout/", logout_user, name="logout"),
-    path('objet', objet, name ="objet"),
+    path("admin/", admin.site.urls),
+    path("place/", place, name="place"),
+    path("inventaire/", inventairePerPlace, name="inventaire-per-place"),
+    path("pieces/", pieces_with_img, name="pieces")
+
 ]
-
-

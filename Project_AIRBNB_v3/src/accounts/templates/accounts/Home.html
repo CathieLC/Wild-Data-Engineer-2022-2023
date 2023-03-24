@@ -1,0 +1,29 @@
+{% extends 'accounts/base.html' %}
+
+{% block title%}<title>Home</title>{% endblock %}
+
+{% block content %}
+    <h1>Home</h1>
+    <form method="post">
+        {% csrf_token %}
+        <h2>
+            Pour accédez au site BNB in the air il faut d'abord te connecter <br>
+            (On a besoin de ta data ! &#x1F608;)
+        </h2>
+        <h3>
+            Si tu possèdes déjà un compte clique sur ce bouton pour te connecter :
+        </h3>
+        <button><a href="{% url 'login' %}">Se connecter</a></button>
+
+        <h3>
+            Sinon créé toi un compte !
+        </h3>
+        <button><a href="{% url 'signup' %}">Créer mon compte</a></button>
+
+        <h3>
+            Et si tu ne sais pas ce que tu fais là, vas t-en !
+        </h3>
+        <button><a href="https://www.google.com">Je m'en vais</a></button>
+
+    </form>
+{% endblock %}

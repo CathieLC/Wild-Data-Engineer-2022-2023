@@ -1,0 +1,33 @@
+{% load static %}
+
+<link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'inventaire/css/bootstrap.css' %}"
+/>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+</head>
+<body>
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Bienvenue sur la page d'accueil de calcul ton volume !</h1>
+        <p class="lead text-muted">+ Pour ajouter un item <br> - Pour en retirer un</p>
+        <p>
+          <a href="{% url 'place' %}" class="btn btn-outline-primary">Liste des pièces</a>
+          <a href="{% url 'inventaire-per-place' %}" class="btn btn-outline-primary">Liste des articles</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+</body>
+</html>

@@ -1,21 +1,25 @@
 {% extends 'accounts/base.html' %}
 
+{% block title%}<title>login</title>{% endblock %}
+
 {% block content %}
-    <h1>Sign Up</h1>
+    <h1>Login</h1>
     <form method="post">
         {% csrf_token %}
-        <p>
+        <h3>
             <label for="username">Nom d'utilisateur :</label>
             <input type="text" name="username" id="username" required>
-        </p>
-        <p>
+        </h3>
+        <h3>
             <label for="password">Mot de passe :</label>
             <input type="password" name="password" id="password" required>
-        </p>
-<!--        <p>-->
-<!--            <label for="email">Email :</label>-->
-<!--            <input type="email" name="email" id="email" required>-->
-<!--        </p>-->
-        <button type="submit">S'inscrire</button>
+        </h3>
+        <button type="submit">Connexion</button>
     </form>
+
+        <h3>
+            Si tu t'es retrouvé ici par erreur et que tu n'as pas de compte, créé le !
+        </h3>
+        <button><a href="{% url 'signup' %}">Créer mon compte</a></button>
+
 {% endblock %}
