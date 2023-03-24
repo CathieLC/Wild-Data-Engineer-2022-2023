@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from accounts.views import home, signup, login_user, logout_user, login_register
+from accounts.views import home, signup, login_user, logout_user, login_register #google_auth
 from rentals.views import objet
 
 urlpatterns = [
@@ -26,7 +26,9 @@ urlpatterns = [
     path("login/", login_user, name="login"),
     path("logout/", logout_user, name="logout"),
     path('objet', objet, name="objet"),
-    path('"login_register', login_register, name='login_register'),
+    path('login_register', login_register, name='login_register'),
+    #path('google-auth', google_auth),
+    #path('confidentiality_rules', confidentiality_rules)
 ]
 
 

@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00d99468-66ec-4cd4-80af-938a51a06694" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/airbnbv3/static/js/auth_google.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/accounts/assets/accounts/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/airbnbv3/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/accounts/assets/accounts/css/login-register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/airbnbv3/static/css/login-register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/accounts/assets/accounts/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/airbnbv3/static/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/accounts/assets/accounts/js/jquery-1.10.2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/airbnbv3/static/js/jquery-1.10.2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/accounts/assets/accounts/js/login-register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/airbnbv3/static/js/login-register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/accounts/templates/accounts/login_register_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/templates/accounts/login_register_modal.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/airbnbv3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/airbnbv3/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/airbnbv3/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/airbnbv3/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +50,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/DocBlog" />
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Project_AIRBNB_v3\src\airbnbv3" />
       <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Project_AIRBNB_v3\src\accounts\templates\accounts" />
-      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Project_AIRBNB_v3\src\accounts" />
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Project_AIRBNB_v3\src\static" />
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Project_AIRBNB_v3\src\static\css" />
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Project_AIRBNB_v3\src\accounts\assets\accounts" />
     </key>
   </component>
   <component name="RunManager">

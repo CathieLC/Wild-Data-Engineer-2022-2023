@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, login, logout, authenticate
 
+import os
+
 
 # Create your views here.
 
@@ -36,10 +38,18 @@ def login_user(request):
     return render(request, 'accounts/login.html')
 
 
+
+# def google_auth(request):
+#     CLIENT_ID = "os.environ.get('GOOGLE_CLIENT_ID')"
+#     REDIRECT_URI = request.build_absolute_uri('/google-auth')
+#     context = {'CLIENT_ID': CLIENT_ID, 'REDIRECT_URI': REDIRECT_URI}
+#     return render(request, 'accounts/login_register_modal.html', context=context)
+
+
 def logout_user(request):
     logout(request)
     return redirect("login")
 
 
 def login_register(request):
-    return render(request, 'account/login_register_modal.html')
+    return render(request, 'accounts/login_register_modal.html')
