@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from inventaire.views import home, place, inventairePerPlace, pieces_with_img
+from inventaire.views import home, place, inventairePerPlace, pieces_with_img, update_counter, increment_counter, article_detail
 
 
 urlpatterns = [
@@ -24,6 +24,10 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("place/", place, name="place"),
     path("inventaire/", inventairePerPlace, name="inventaire-per-place"),
-    path("pieces/", pieces_with_img, name="pieces")
+    path("pieces/", pieces_with_img, name="pieces"),
+    path("update_counter", update_counter, name='update-counter'),
+    path("increment_counter", increment_counter, name='increment-counter'),
+    path("article_detail", article_detail, name="article-detail")
+
 
 ]

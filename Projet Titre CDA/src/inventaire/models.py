@@ -2,10 +2,14 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 # Create your models here.
+from django.views.generic import DetailView
+
+
 class Inventaire_items(models.Model):
     items = models.CharField(max_length=100)
     volume = models.DecimalField(max_digits=6, decimal_places=2)
     place = models.CharField(max_length=50)
+
 
 
 
@@ -38,6 +42,21 @@ class Housing_inventory(models.Model):
     item = models.CharField(max_length=50)
     numberOfItems = models.IntegerField()
     totalVolumeOfItems = models.DecimalField(max_digits=4, decimal_places=2)
+
+
+class Article(models.Model):
+    items = models.ForeignKey(Inventaire_items, on_delete=models.CASCADE, null=True)
+    counter = models.IntegerField(default=0)
+
+
+class ArticleDetailView(DetailView):
+   model = Article
+   template_name = 'inventaire/items_per_place.html'
+
+   def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      context['counter'] = self.object.counter
+      return context
 
 
 
