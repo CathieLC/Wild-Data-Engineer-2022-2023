@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Accueil{% endblock title %}</title>
+
+{% block content %}
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Bienvenue sur la page d'accueil de calcul ton volume !</h1>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'place' %}" class="btn btn-outline-primary">Liste des pièces</a>
+            <a href="{% url 'inventaire-per-place' %}" class="btn btn-outline-primary">Liste des articles</a>
+            <a href="{% url 'inventaire-per-place' %}" class="btn btn-outline-primary">Liste des articles</a>
+
+        {% else %}
+        <h3 class="fw-light">Avant de pouvoir accéder au contenu de cette application, vous devez vous connecter</h3><br>
+        <button><a href="{% url 'login' %}">Se connecter</a></button>
+        <button><a href="{% url 'signup' %}">Inscription</a></button>
+
+        {% endif %}
+
+      </div>
+    </div>
+</section>
+
+{% endblock %}
+

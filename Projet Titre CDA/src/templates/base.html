@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'inventaire/css/bootstrap.css' %}"/>
+    <title>{% block title %}Calcul ton dem{% endblock title %}</title>
+
+</head>
+
+
+<body>
+
+{% if user.is_authenticated %}
+<div><button class="signout"><a href="{% url 'logout' %}">Déconnexion ({{ user.username }})</a></button></div>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

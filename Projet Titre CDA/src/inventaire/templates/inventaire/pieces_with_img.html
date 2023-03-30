@@ -1,14 +1,9 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'inventaire/css/bootstrap.css' %}"/>
+<title>{% block title %}Pièces{% endblock title %}</title>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Test_bootstrap</title>
-</head>
-<body>
+
+{% block content %}
 
 
 
@@ -18,185 +13,42 @@
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Calcul ton volume !</h1>
-        <p class="lead text-muted">[+] Pour ajouter une pièce <br> [-] Pour en retirer une <br/>
-        Cliquez ensuite sur le nom de la pièce pour commencer l'inventaire</p>
-        <p>
-          <a href="{% url 'place' %}" class="btn btn-outline-primary">Liste des pièces</a>
-          <a href="{% url 'inventaire-per-place' %}" class="btn btn-outline-primary">Liste des articles</a>
-        </p>
+            <p class="lead text-muted">[+] Pour ajouter une pièce <br> [-] Pour en retirer une <br/>
+                Cliquez ensuite sur le nom de la pièce pour commencer l'inventaire
+            </p>
+            <p>
+              <a href="{% url 'place' %}" class="btn btn-outline-primary">Liste des pièces</a>
+              <a href="{% url 'inventaire-per-place' %}" class="btn btn-outline-primary">Liste des articles</a>
+            </p>
       </div>
     </div>
   </section>
 
 <div class="container">
     <div class="card-deck">
-<div class="row row-cols-sm-1 row-cols-sm-2 row-cols-sm-3 justify-content-center">
-        <div class="col" >
-          <div class="card text-center " >
-
-            <img  src="{% static 'img/living-room.png' %}" class="img-fluid" >
-
-            <div class="card-body">
-                  <h4 class="card-text">
-                    <!-- Récupérer la liste de mes pièces !-->
-                    {% for place in valeurs_distinctes %}
-                        {% if forloop.first %}
-                            <!-- faire un lien sur chaque nom de pièce pour afficher la liste des items correspondants !-->
-                            <a href="{% url 'inventaire-per-place' %}?place={{ place }}">
-                                {{ place }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                 </h4>
-                    <br/>
-                <div class="btn-group-justify">
-                  <button type="button" class="btn btn-outline-primary btn-sm">Ajouter [+]</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm">Retirer [-]</button>
+        <div class="row row-cols-sm-1 row-cols-sm-2 row-cols-sm-3 justify-content-center">
+            <div class="col" >
+                <div class="card text-center">
+                    <img  src="{% static 'img/living-room.png' %}" class="img-fluid">
+                        <div class="card-body">
+                            <h4 class="card-text"> <!-- Récupérer la liste de mes pièces !-->
+                                {% for place in valeurs_distinctes %}
+                                    {% if forloop.first %}
+                                        <a href="{% url 'inventaire-per-place' %}?place={{ place }}">{{ place }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </h4>
+                        </div>
+                        <div class="btn-group-justify">
+                          <button type="button" class="btn btn-outline-primary btn-sm">Ajouter [+]</button>
+                          <button type="button" class="btn btn-outline-primary btn-sm">Retirer [-]</button>
+                        </div>
                 </div>
-                    <br/>
-
             </div>
-          </div>
         </div>
-        <div class="col" >
-          <div class="card text-center " >
-
-            <img  src="{% static 'img/jardin.png' %}" class="img-fluid" alt="Jardin">
-
-            <div class="card-body">
-                  <h4 class="card-text">
-                    <!-- Récupérer la liste de mes pièces !-->
-                    {% for place in valeurs_distinctes %}
-                        {% if forloop.counter == 2 %}
-                            <!-- faire un lien sur chaque nom de pièce pour afficher la liste des items correspondants !-->
-                            <a href="{% url 'inventaire-per-place' %}?place={{ place }}">
-                                {{ place }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                 </h4>
-                    <br/>
-                <div class="btn-group-justify">
-                  <button type="button" class="btn btn-outline-primary btn-sm">Ajouter [+]</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm">Retirer [-]</button>
-                </div>
-                    <br/>
-
-            </div>
-          </div>
-        </div>
-        <div class="col" >
-          <div class="card text-center " >
-
-            <img  src="{% static 'img/bedroom.png' %}" class="img-fluid" alt="Chambre">
-
-            <div class="card-body">
-                  <h4 class="card-text">
-                    <!-- Récupérer la liste de mes pièces !-->
-                    {% for place in valeurs_distinctes %}
-                        {% if forloop.counter == 3 %}
-                            <!-- faire un lien sur chaque nom de pièce pour afficher la liste des items correspondants !-->
-                            <a href="{% url 'inventaire-per-place' %}?place={{ place }}">
-                                {{ place }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                 </h4>
-                    <br/>
-                <div class="btn-group-justify">
-                  <button type="button" class="btn btn-outline-primary btn-sm">Ajouter [+]</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm">Retirer [-]</button>
-                </div>
-                    <br/>
-
-            </div>
-          </div>
-        </div>
-        <div class="col" >
-          <div class="card text-center " >
-
-            <img  src="{% static 'img/bureau.png' %}" class="img-fluid" alt="Bureau">
-
-            <div class="card-body">
-                  <h4 class="card-text">
-                    <!-- Récupérer la liste de mes pièces !-->
-                    {% for place in valeurs_distinctes %}
-                        {% if forloop.counter == 4 %}
-                            <!-- faire un lien sur chaque nom de pièce pour afficher la liste des items correspondants !-->
-                            <a href="{% url 'inventaire-per-place' %}?place={{ place }}">
-                                {{ place }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                 </h4>
-                    <br/>
-                <div class="btn-group-justify">
-                  <button type="button" class="btn btn-outline-primary btn-sm">Ajouter [+]</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm">Retirer [-]</button>
-                </div>
-                    <br/>
-
-            </div>
-          </div>
-        </div>
-        <div class="col" >
-          <div class="card text-center " >
-
-            <img  src="{% static 'img/living-room.png' %}" class="img-fluid" alt="Salle à manger">
-
-            <div class="card-body">
-                  <h4 class="card-text">
-                    <!-- Récupérer la liste de mes pièces !-->
-                    {% for place in valeurs_distinctes %}
-                        {% if forloop.counter == 5 %}
-                            <!-- faire un lien sur chaque nom de pièce pour afficher la liste des items correspondants !-->
-                            <a href="{% url 'inventaire-per-place' %}?place={{ place }}">
-                                {{ place }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                 </h4>
-                    <br/>
-                <div class="btn-group-justify">
-                  <button type="button" class="btn btn-outline-primary btn-sm">Ajouter [+]</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm">Retirer [-]</button>
-                </div>
-                    <br/>
-
-            </div>
-          </div>
-        </div>
-        <div class="col" >
-          <div class="card text-center " >
-
-            <img  src="{% static 'img/kitchen.png' %}" class="img-fluid" alt="Cuisine">
-
-            <div class="card-body">
-                  <h4 class="card-text">
-                    <!-- Récupérer la liste de mes pièces !-->
-                    {% for place in valeurs_distinctes %}
-                        {% if forloop.counter == 6 %}
-                            <!-- faire un lien sur chaque nom de pièce pour afficher la liste des items correspondants !-->
-                            <a href="{% url 'inventaire-per-place' %}?place={{ place }}">
-                                {{ place }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                 </h4>
-                    <br/>
-                <div class="btn-group-justify">
-                  <button type="button" class="btn btn-outline-primary btn-sm">Ajouter [+]</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm">Retirer [-]</button>
-                </div>
-                    <br/>
-                <p class="text-muted">il y a x articles </p>
-            </div>
-          </div>
-        </div>
-     </div>
-  </div>
+    </div>
 </div>
 
 
-</body>
-</html>
+
+{% endblock %}
