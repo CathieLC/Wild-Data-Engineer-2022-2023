@@ -2,23 +2,30 @@
 
 {% block content %}
 
-    <h1>Inscription</h1>
+<h3>Bienvenue sur la page d'inscription de calcul ton volume !</h3>
+<h3 class="fw-light">Inscription</h3>
 
     <form method="post">
-        {% csrf_token %}
+    {% csrf_token %}
         <p>
-            <label for="username">Nom d'utilisateur :</label>
-            <input type="text" name="username" id="username" required> <!--name est une clé de dictionnaire que l'on utilise dans la views pour récupérer les informations !-->
+            <label for="username">Nom :</label>
+            <input type="text" name="username" id="username" required>
+            <!--'name=' est une clé de dictionnaire que l'on utilise dans la views pour récupérer les informations !-->
         </p>
         <p>
             <label for="first_name">Prénom</label>
-            <input type="text" name="first_name" id="first_name" required> <!--name est une clé de dictionnaire que l'on utilise dans la views pour récupérer les informations !-->
+            <input type="text" name="first_name" id="first_name" required>
+        </p>
+        <p>
+            <label for="email">Email :</label>
+            <input type="email" name="email" id="email" required>
         </p>
         <p>
             <label for="password">Mot de passe :</label>
             <input type="password" name="password" id="password" required>
         </p>
         <button type="submit">S'inscrire</button>
+        <p> J'ai déjà un compte  <button><a href="{% url 'login' %}">Se connecter</a></button></p>
     </form>
 
 {% endblock %}

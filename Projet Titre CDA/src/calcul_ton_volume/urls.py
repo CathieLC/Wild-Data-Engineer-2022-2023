@@ -17,23 +17,17 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from inventaire.views import place, inventairePerPlace, pieces, update_counter, increment_counter, article_detail
-
+from inventaire.views import inventaireParLieu,  listePieces
 from comptes.views import signup,login_user,logout_user
-
 from views.views import home
-
 from calcul_ton_volume import settings
 
 urlpatterns = [
     path("", home, name="home"),
     path("admin/", admin.site.urls),
-    path("place/", place, name="place"),
-    path("inventaire/", inventairePerPlace, name="inventaire-per-place"),
-    path("pieces/", pieces, name="pieces"),
-    path("update_counter", update_counter, name='update-counter'),
-    path("increment_counter", increment_counter, name='increment-counter'),
-    path("article_detail", article_detail, name="article-detail"),
+
+    path("inventaire/", inventaireParLieu, name="inventaire-par-lieu"),
+    path("listePieces", listePieces, name="listePieces"),
 
     path("signup", signup, name="signup"),
     path("login", login_user, name="login"),

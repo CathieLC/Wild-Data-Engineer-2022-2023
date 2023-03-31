@@ -10,11 +10,11 @@
         <h1 class="fw-light">Bienvenue sur la page d'accueil de calcul ton volume !</h1>
 
         {% if user.is_authenticated %}
-            <a href="{% url 'place' %}" class="btn btn-outline-primary">Liste des pièces</a>
-            <a href="{% url 'inventaire-per-place' %}" class="btn btn-outline-primary">Liste des articles</a>
-            <a href="{% url 'inventaire-per-place' %}" class="btn btn-outline-primary">Liste des articles</a>
-
+            <a href="{% url 'listePieces' %}" class="btn btn-outline-primary">Les pièces</a>
+            <a href="{% url 'inventaire-par-lieu' %}" class="btn btn-outline-primary">Les articles</a>
+            <a href="{% url 'home' %}" class="btn btn-outline-primary">Client (en création)</a>
         {% else %}
+
         <h3 class="fw-light">Avant de pouvoir accéder au contenu de cette application, vous devez vous connecter</h3><br>
         <button><a href="{% url 'login' %}">Se connecter</a></button>
         <button><a href="{% url 'signup' %}">Inscription</a></button>

@@ -28,10 +28,6 @@
                     <div class="card-body">
                         <h4 class="card-text"> <!-- Récupérer la liste de mes pièces !-->
 
-<!--                            {% for piece in pieces_img %}-->
-<!--                            <img src="{{ piece.image_item.url }}" alt="{{ piece.piece }}">-->
-<!--                            {% endfor %}-->
-
                             {% for place in valeurs_distinctes %}
                                 <a href="{% url 'inventaire-per-place' %}?place={{ place }}">{{ place }}</a>
                                 <img src="{{ place.image_item.url }}" alt="{{ place.place }}">

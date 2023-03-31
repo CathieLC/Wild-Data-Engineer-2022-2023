@@ -8,9 +8,11 @@ def signup(request):
         #Traiter le formulaire
         username = request.POST.get("username")
         first_name = request.POST.get("first_name")
+        email = request.POST.get("email")
         password = request.POST.get("password")
         user = User.objects.create_user(username=username,
                                         first_name=first_name,
+                                        email=email,
                                         password=password)
         login(request, user)
         return redirect('home')

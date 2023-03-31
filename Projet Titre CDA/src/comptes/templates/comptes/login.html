@@ -2,18 +2,21 @@
 
 {% block content %}
 
-    <h1>Connexion</h1>
+<h3>Bienvenue sur la page de connexion de calcul ton volume !</h3>
+<h3 class="fw-light">Connexion</h3>
     <form method="post">
-        {% csrf_token %}
+    {% csrf_token %}
+
         <p>
-            <label for="username">Nom d'utilisateur :</label>
+            <label for="username">Nom :</label>
             <input type="text" name="username" id="username" required>
         </p>
         <p>
             <label for="password">Mot de passe :</label>
             <input type="password" name="password" id="password" required>
         </p>
-        <button type="submit">Connexion</button>
+            <button type="submit">Connexion</button>
+            <p> Je n'ai pas de compte  <button><a href="{% url 'signup' %}">S'inscrire</a></button></p>
     </form>
 
 {% endblock %}
