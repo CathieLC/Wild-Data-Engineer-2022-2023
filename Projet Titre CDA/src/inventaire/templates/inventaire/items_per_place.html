@@ -27,9 +27,9 @@
 
 <!-- Récupérer la liste de mes articles pour chaque pièce !-->
     <ul>
-        {% for item in typePiece %}
+        {% for i in typePiece %}
             <li>
-                {{ item.items }}
+                {{ i.items }} <!--Il faut que je trouve le moyen de mettre le slug !! !-->
             </li>
         {% endfor %}
     </ul>

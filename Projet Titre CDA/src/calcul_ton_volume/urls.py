@@ -17,7 +17,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from inventaire.views import inventaireParLieu,  listePieces
+from inventaire.views import inventaireParLieu,  listePieces, inventairetest
 from comptes.views import signup,login_user,logout_user
 from views.views import home
 from calcul_ton_volume import settings
@@ -32,5 +32,7 @@ urlpatterns = [
     path("signup", signup, name="signup"),
     path("login", login_user, name="login"),
     path("logout", logout_user, name="logout"),
+
+    path("inventairetest", inventairetest, name="inventairetest")
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

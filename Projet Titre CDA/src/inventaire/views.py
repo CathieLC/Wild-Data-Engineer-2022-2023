@@ -1,3 +1,4 @@
+from django.db.models.functions import Lower
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Inventaire_items, Piece, Mission, Contenu
 
@@ -8,17 +9,36 @@ def listePieces(request):
 
 
 def inventaireParLieu(request):
-    inventaireComplet = Inventaire_items.objects.all()
-    typePiece = request.GET.get('place')  # Récupérer les paramètres de recherche
+    pass
+#     inventaireComplet = Inventaire_items.objects.all()
+#     typePiece = request.GET.get('place')  # Récupérer les paramètres de recherche
+#
+#     if typePiece:
+#         inventaireComplet = inventaireComplet.filter(place=typePiece)  # Filtrer les objets
+#
+#     return render(request, "inventaire/items_per_place.html", {"typePiece": inventaireComplet})
 
-    if typePiece:
-        inventaireComplet = inventaireComplet.filter(place=typePiece)  # Filtrer les objets
 
-    return render(request, "inventaire/items_per_place.html", {"typePiece": inventaireComplet})
+def inventairetest(request):
+
+    inventaire = Inventaire_items.objects.annotate(piece_lower=Lower('place')).get()
+    inventairecomp = inventaire.piece_lower.distinct()
+
+    return render(request, "inventaire/test.html", {"inventairecomp": inventairecomp})
 
 
 
-
+#A essayer de compléter avec le slug
+# def inventaireParLieu(request):
+#     inventaireComplet = Inventaire_items.objects.all()
+#
+#     pieces = Piece.objects.values_list('slug', flat=True)
+#     #typePiece = request.GET.get('slug')  # Récupérer les paramètres de recherche
+#
+#     if pieces:
+#         inventaireComplet = inventaireComplet.filter(place=pieces)  # Filtrer les objets
+#
+#     return render(request, "inventaire/items_per_place.html", {"typePiece": inventaireComplet})
 
 
 
