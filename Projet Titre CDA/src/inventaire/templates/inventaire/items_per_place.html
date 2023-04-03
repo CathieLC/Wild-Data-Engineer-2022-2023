@@ -30,8 +30,14 @@
         {% for i in typePiece %}
             <li>
                 {{ i.items }} <!--Il faut que je trouve le moyen de mettre le slug !! !-->
+                <button>
+                    <a href="{% url 'add-to-mission' i.items %}">+</a> <!--J'ai bien l'ajout à la bdd me manque la page de renvoi et l'affichage du panier!-->
+<!--                    <a href="{% url 'inventaire-par-lieu' %}?place={{ i }}">plus</a>-->
+                </button>
             </li>
         {% endfor %}
     </ul>
+
+<!-- c'est sur cette page que doivent être les boutons + et -  des ajouts d'articles!-->
 
 {% endblock %}
