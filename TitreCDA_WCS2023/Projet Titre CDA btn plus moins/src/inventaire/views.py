@@ -1,32 +1,33 @@
 from django.db.models.functions import Lower
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Inventaire_items, Piece, Mission, Contenu
+from .models import Articles, Piece
 
 
 def listePieces(request):
-    piecestablepiece = Piece.objects.all()
-    return render(request, 'inventaire/liste_pieces.html', context={"piecestable": piecestablepiece})
+    listePieces = Piece.objects.all()
+    return render(request, 'inventaire/liste_pieces.html', context={"listePieces": listePieces})
 
-# def detailspieces(request,slug):
-#     product = get_object_or_404(Inventaire_items, slug=slug)
-#     return render(request, "inventaire/items_per_place.html", context={"typePiece": product})
+def detailspieces(request,nomPieceArticle):
+    ListeArticles = Articles.objects.all()
+    articleParPiece = ListeArticles.filter(nomPieceArticle=nomPieceArticle)
+    return render(request, "inventaire/items_per_place.html", context={"articleParPiece": articleParPiece})
 
 
-def inventaireParLieu(request):
-    # pass
-    inventaireComplet = Inventaire_items.objects.all()
-    typePiece = request.GET.get('place')  # Récupérer les paramètres de recherche
-
-    if typePiece:
-        inventaireComplet = inventaireComplet.filter(place=typePiece)  # Filtrer les objets
-
-    return render(request, "inventaire/items_per_place.html", {"typePiece": inventaireComplet})
+# def inventaireParLieu(request):
+#     # pass
+#     inventaireComplet = Articles.objects.all()
+#     typePiece = request.GET.get('nomPieceArticle')  # Récupérer les paramètres de recherche
+#
+#     if typePiece:
+#         inventaireComplet = inventaireComplet.filter(nomPieceArticle=typePiece)  # Filtrer les objets
+#
+#     return render(request, "inventaire/items_per_place.html", {"typePiece": inventaireComplet})
 
 
 
 #A essayer de compléter avec le slug
 # def inventaireParLieu(request):
-#     inventaireComplet = Inventaire_items.objects.all()#
+#     inventaireComplet = Articles.objects.all()#
 #     pieces = Piece.objects.values_list('slug', flat=True)
 #     #typePiece = request.GET.get('slug')  # Récupérer les paramètres de recherche#
 #     if pieces:
@@ -38,7 +39,7 @@ def inventaireParLieu(request):
 # def add_to_mission(request, items): # comme add to cart
 #     # on récupère simplement l'utilisateur
 #     user = request.user
-#     article = get_object_or_404(Inventaire_items, items=items)
+#     article = get_object_or_404(Articles, items=items)
 #     contenu, _ = Contenu.objects.get_or_create(user=user) #si le contenu n'existe pas il sera créé
 #
 #     # order ce sera l'article à récupérer si il existe déjà dans le contenu
