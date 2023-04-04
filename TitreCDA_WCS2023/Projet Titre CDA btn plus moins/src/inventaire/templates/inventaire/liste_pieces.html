@@ -8,8 +8,9 @@
 
     <div>
         {% for lieu in listePieces %}
-            <h4><a href="{% url 'detailspieces' lieu.slugPiece %}">{{ lieu.nomPiece }}</a></h4>
 
+            <h4><a href="{% url 'detailspieces' lieu.slugPiece %}">{{ lieu.nomPiece }}</a></h4>
+            <p><a href="{% url 'detailspieces' lieu.slugPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 250px;"></a></p>
 
 
         {% endfor %}

@@ -18,16 +18,29 @@ class Piece(models.Model):
     nomPiece = models.CharField(max_length=50)
     article = models.ManyToManyField(Articles)
     slugPiece = models.CharField(max_length=50)
-    imagePiece = models.ImageField(upload_to="img_pieces", blank=True, null=True)
+    imagePiece = models.ImageField(upload_to="media/img_pieces", blank=True, null=True)
 
     def __str__(self):
         return self.nomPiece
 
 
 
+class Mission(models.Model):
+    utilisateur = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    articlesMission = models.ForeignKey(Articles, on_delete=models.CASCADE)
+    quantite = models.IntegerField(default=1)
 
+    def __str__(self):
+        return f"{self.articlesMission.nomArticle} ({self.quantite})"
 
+class Panier(models.Model):
+    utilisateur = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    articles = models.ManyToManyField(Mission)
+    missionValidee = models.BooleanField(default=False)
+    dateMissionValisee = models.DateTimeField(blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.utilisateur.username} {self.utilisateur.first_name}"
 
 
 

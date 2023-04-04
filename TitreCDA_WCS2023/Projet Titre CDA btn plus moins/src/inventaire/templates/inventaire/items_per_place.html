@@ -5,14 +5,14 @@
 {% block content %}
 
 
-    <ul>
-        {% for i in articleParPiece %}
-            <li>
-                {{ i.nomArticle }}
 
-            </li>
+        {% for i in articleParPiece %}
+
+                <p>{{ i.nomArticle }}</p>
+                <p> <a href="{% url 'addMission' i.nomPieceArticle  %}"> Ajout </a></p>
+
         {% endfor %}
-    </ul>
+
 
 <!-- c'est sur cette page que doivent être les boutons + et -  des ajouts d'articles!-->
 
