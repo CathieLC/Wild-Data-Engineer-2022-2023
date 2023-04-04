@@ -22,10 +22,12 @@
 </section>
 
     <div>
-        {% for piece in piecestable %}
-           <h4><a href="{% url 'inventaire-par-lieu' %}?place={{ piece }}">{{ piece }}</a></h4>
-           <p><a href="{% url 'inventaire-par-lieu' %}?place={{ piece }}"><img src="{{ piece.image_item.url }}" alt="{{ piece.piece }}" style="max-width: 250px;"></a></p>
-           <a href="{% url 'inventaire-par-lieu' %}?place={{ piece }}">Articles de la pièce</a>
+        {% for lieu in piecestable %}
+           <h4><a href="{% url 'inventaire-par-lieu' %}?place={{ lieu }}">{{ lieu }}</a></h4>
+           <p><a href="{% url 'inventaire-par-lieu' %}?place={{ lieu }}"><img src="{{ lieu.image_item.url }}" alt="{{ piece.piece }}" style="max-width: 250px;"></a></p>
+           <a href="{% url 'inventaire-par-lieu' %}?place={{ lieu }}">Articles de la pièce</a>
+
+
         {% endfor %}
     </div>
 

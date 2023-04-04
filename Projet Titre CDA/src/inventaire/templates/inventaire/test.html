@@ -5,9 +5,10 @@
 
 {% block content %}
 
-{% for i in inventairecomp %}
+    <h2>{{ detailpiece.piece }}</h2>
+    <img src ="{{ detailpiece.image_item.url }}" alt="{{ detailpiece.image_item }}" style="max-width: 200px;">
 
-    {{ i }}
+
 
 
 {% endblock %}
