@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Pièces{% endblock title %}</title>
+
+
+{% block content %}
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Calcul ton volume !</h1>
+            <p class="lead text-muted">[+] Pour ajouter une pièce <br> [-] Pour en retirer une <br/>
+                Cliquez ensuite sur la pièce pour commencer ou continuer l'inventaire
+            </p>
+            <p>
+            <a href="{% url 'home' %}" class="btn btn-outline-primary">Accueil</a>
+            <a href="{% url 'inventaire-par-lieu' %}" class="btn btn-outline-primary">Les articles</a>
+            <a href="{% url 'home' %}" class="btn btn-outline-primary">Client (en création)</a>
+            </p>
+      </div>
+    </div>
+</section>
+
+    <div>
+        {% for lieu in piecestable %}
+           <h4><a href="{% url 'inventaire-par-lieu' %}?place={{ lieu }}">{{ lieu }}</a></h4>
+           <p><a href="{% url 'inventaire-par-lieu' %}?place={{ lieu }}"><img src="{{ lieu.image_item.url }}" alt="{{ piece.piece }}" style="max-width: 250px;"></a></p>
+           <a href="{% url 'inventaire-par-lieu' %}?place={{ lieu }}">Articles de la pièce</a>
+
+
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}
