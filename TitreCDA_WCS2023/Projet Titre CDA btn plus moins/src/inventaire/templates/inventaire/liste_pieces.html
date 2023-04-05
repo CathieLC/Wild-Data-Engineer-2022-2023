@@ -11,7 +11,7 @@
 
             <h4><a href="{% url 'detailspieces' lieu.slugPiece %}">{{ lieu.nomPiece }}</a></h4>
             <p><a href="{% url 'detailspieces' lieu.slugPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 250px;"></a></p>
-
+            <p> <a href="{% url 'addMissionPiece' lieu.slugPiece %}"> Ajout </a></p>
 
         {% endfor %}
     </div>

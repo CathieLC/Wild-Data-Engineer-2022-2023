@@ -10,9 +10,9 @@ class Articles(models.Model):
     imageArticle = models.ImageField(upload_to="img_inventaire", blank=True, null=True)
     nomPieceArticle = models.CharField(max_length=50, blank=True, null=True)
 
-
     def __str__(self):
         return f"{self.nomArticle} ({self.nomPieceArticle})"
+
 
 class Piece(models.Model):
     nomPiece = models.CharField(max_length=50)
@@ -24,20 +24,30 @@ class Piece(models.Model):
         return self.nomPiece
 
 
-
-class Mission(models.Model):
+class MissionPiece(models.Model):
     utilisateur = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    pieceMission = models.ForeignKey(Piece, on_delete=models.CASCADE)
+    quantitePiece = models.IntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.pieceMission.nomPiece} ({self.quantitePiece})"
+
+
+class MissionArticle(models.Model):
+    utilisateur = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    pieceMission = models.ForeignKey(MissionPiece, on_delete=models.CASCADE)
     articlesMission = models.ForeignKey(Articles, on_delete=models.CASCADE)
-    quantite = models.IntegerField(default=1)
+    quantiteArticle = models.IntegerField(default=1)
 
     def __str__(self):
         return f"{self.articlesMission.nomArticle} ({self.quantite})"
 
-class Panier(models.Model):
+class CommandeClient(models.Model):
     utilisateur = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
-    articles = models.ManyToManyField(Mission)
+    piecesPanier = models.ManyToManyField(MissionPiece)
     missionValidee = models.BooleanField(default=False)
     dateMissionValisee = models.DateTimeField(blank=True, null=True)
+
 
     def __str__(self):
         return f"{self.utilisateur.username} {self.utilisateur.first_name}"
