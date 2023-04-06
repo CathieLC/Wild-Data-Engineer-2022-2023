@@ -41,6 +41,22 @@ def addMissionPiece(request, nomPieceArticle):
 
     return redirect(reverse("detailspieces", kwargs={"nomPieceArticle": nomPieceArticle}))
 
+def RemoveMissionPiece(request, nomPieceArticle):
+
+    utilisateur = request.user
+    nomDePiece = get_object_or_404(Piece, nomPiece=nomPieceArticle)
+    contenu, _ = CommandeClient.objects.get_or_create(utilisateur=utilisateur)
+
+    mission, created = MissionPiece.objects.get_or_create(utilisateur=utilisateur,
+                                                          pieceMission=nomDePiece)
+    if created:
+        contenu.piecesPanier.add(mission)
+        contenu.save()
+    else:
+        mission.quantitePiece -= 1
+        mission.save()
+
+    return redirect(reverse("detailspieces", kwargs={"nomPieceArticle": nomPieceArticle}))
 
 #même chose avec nomArticle
 # def addMissionArticle(request, nomArticle):
