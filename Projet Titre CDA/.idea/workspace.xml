@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3e0630ab-0a98-4fc7-9a18-0fb0d58f03c8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/inventaire/templates/inventaire/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calcul_ton_volume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calcul_ton_volume/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inventaire/templates/inventaire/items_per_place.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/inventaire/templates/inventaire/items_per_place.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inventaire/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/inventaire/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2NSpPI0Xw0AoT1wx4lE5MPwq2KI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/media/img_pieces" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Projet Titre CDA\src\media\img_pieces" />
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Projet Titre CDA\src\comptes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Projet Titre CDA\src\inventaire\templates\inventaire\deprecated" />
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Projet Titre CDA\src\templates" />
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Projet Titre CDA\src\media" />
+      <recent name="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Projet Titre CDA\src\static" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e0630ab-0a98-4fc7-9a18-0fb0d58f03c8" name="Changes" comment="" />
+      <created>1679667311456</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679667311456</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TerminalProjectNonSharedOptionsProvider">
+    <option name="startingDirectory" value="C:\Users\cathe\Documents\Code\Code 2022-2023\Wild-Data-Engineer-2022-2023\Projet Titre CDA\src" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
