@@ -4,10 +4,9 @@
 
 {% block content %}
 
-        {% if user.is_authenticated %}
             <a href="{% url 'home' %}" class="btn btn-outline-primary">Accueil</a>
             <a href="{% url 'listePieces' %}" class="btn btn-outline-primary">Les pièces</a>
-        {% endif %}
+
 
 
         {% for i in articleParPiece %}

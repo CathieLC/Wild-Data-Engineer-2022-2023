@@ -8,38 +8,49 @@
 <a href="{% url 'listePieces' %}" class="btn btn-outline-primary">Les pièces</a>
 
 
-            <h4><a href=#>{{ Piecedeliste.nomPiece }}</a></h4>
-            <p><a href=#> <img src="{{ Piecedeliste.imagePiece.url }}" alt="{{ Piecedeliste.nomPiece }}" style="max-width: 250px;"></a></p>
+    <h4><a href=#>{{ Piecedeliste.nomPiece }}</a></h4>
+    <p><a href=#> <img src="{{ Piecedeliste.imagePiece.url }}" alt="{{ Piecedeliste.nomPiece }}" style="max-width: 250px;"></a></p>
 
 
+<!-- J'affiche la quantité des pièces !-->
+<div>
+    {% for i in quantitePiece %}
+        {% if i.pieceMission == Piecedeliste %}
+            <div>
+                <h3><button><a href="{% url 'RemoveMissionPiece' Piecedeliste.nomPiece %}"> [-] </a></button>
 
-            {% for i in quantitePiece %}
+            {% if i.quantitePiece <= 0 %}
 
-                {% if i.pieceMission == Piecedeliste %}
+                {% url 'listePieces' as redirection_url %}
+                {% if redirection_url %}
 
-                    <button><p> <a href="{% url 'addMissionPiece' Piecedeliste.nomPiece %}"> [+] </a></p></button>
-
-                    {% if i.quantitePiece <= 0 %}
-
-                        {% url 'listePieces' as redirection_url %}
-                        {% if redirection_url %}
-
-                         <script>window.location.href = '{{ redirection_url }}';</script>
-                        {% endif %}
-
-                    {% else %}
-
-
-                    <h3>{{ i.pieceMission }} : {{ i.quantitePiece }}</h3>
-
-                    {% endif %}
-                    <button>
-                        <p> <a href="{% url 'RemoveMissionPiece' Piecedeliste.nomPiece%}"> [-] </a></p>
-                    </button>
+                    <script>window.location.href = '{{ redirection_url }}';</script>
 
                 {% endif %}
+            {% else %}
 
-           {% endfor %}
+                {{ i.pieceMission }} : {{ i.quantitePiece }}
+
+            {% endif %}
+            <button> <a href="{% url 'addMissionPiece' Piecedeliste.nomPiece%}"> [+] </a></button></h3>
+            </div>
+        {% endif %}
+   {% endfor %}
+</div>
+
+<br>
+<!-- J'affiche la liste des articles par pièce !-->
+<div>
+    {% for a in ListeArticles %}
+        {% if a.nomPieceArticle == Piecedeliste.nomPiece %}
+            <div>
+                {{ a.nomArticle }}
+                <button><a href="{% url 'addMissionPiece' Piecedeliste.nomPiece %}"> [+] </a></button>
+
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
 
 
 {% endblock %}

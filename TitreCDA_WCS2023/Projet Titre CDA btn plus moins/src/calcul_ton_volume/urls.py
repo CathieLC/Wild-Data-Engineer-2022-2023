@@ -20,8 +20,9 @@ urlpatterns = [
     path("login", login_user, name="login"),
     path("logout", logout_user, name="logout"),
 
-    path('detailspieces/<str:nomPieceArticle>', detailspieces, name="detailspieces"),
     path('PiecesListe/<str:nomPiece>/addMissionPiece/', addMissionPiece, name="addMissionPiece"),
     path('PiecesListe/<str:nomPiece>/RemoveMissionPiece/', RemoveMissionPiece, name="RemoveMissionPiece"),
+
+    path('detailspieces/<str:nomPieceArticle>', detailspieces, name="detailspieces"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

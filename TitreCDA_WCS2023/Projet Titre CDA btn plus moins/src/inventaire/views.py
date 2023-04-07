@@ -1,6 +1,6 @@
 from django.db.models.functions import Lower
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Articles, Piece, CommandeClient, MissionPiece
+from .models import Articles, Piece, CommandeClient, MissionPiece, ArticlesV2
 from django.urls import reverse
 
 
@@ -8,11 +8,15 @@ def listePieces(request):
     listePieces = Piece.objects.all()
     return render(request, 'inventaire/liste_pieces.html', context={"listePieces": listePieces})
 
+
 def PiecesListe(request,nomPiece):
     Piecedeliste = get_object_or_404(Piece, nomPiece=nomPiece)
     quantitePiece = MissionPiece.objects.all()
+    ListeArticles = ArticlesV2.objects.all()
 
-    return render(request, 'inventaire/liste_pieces2.html', context={"Piecedeliste": Piecedeliste, "quantitePiece": quantitePiece})
+    return render(request, 'inventaire/liste_pieces2.html', context={"Piecedeliste": Piecedeliste,
+                                                                     "quantitePiece": quantitePiece,
+                                                                     "ListeArticles": ListeArticles})
 
 
 def detailspieces(request,nomPieceArticle):
