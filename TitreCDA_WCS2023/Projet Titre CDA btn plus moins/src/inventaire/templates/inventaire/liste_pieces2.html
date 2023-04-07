@@ -8,7 +8,7 @@
 <a href="{% url 'listePieces' %}" class="btn btn-outline-primary">Les pièces</a>
 
 
-    <h4><a href=#>{{ Piecedeliste.nomPiece }}</a></h4>
+    <h2>{{ Piecedeliste.nomPiece |title }}</h2> <!-- |title permet de mettre la première lettre en MAJ!-->
     <p><a href=#> <img src="{{ Piecedeliste.imagePiece.url }}" alt="{{ Piecedeliste.nomPiece }}" style="max-width: 250px;"></a></p>
 
 
@@ -22,11 +22,11 @@
             {% if i.quantitePiece <= 0 %}
 
                 {% url 'listePieces' as redirection_url %}
-                {% if redirection_url %}
 
+                    {% if redirection_url %}
                     <script>window.location.href = '{{ redirection_url }}';</script>
+                    {% endif %}
 
-                {% endif %}
             {% else %}
 
                 {{ i.pieceMission }} : {{ i.quantitePiece }}
@@ -36,17 +36,29 @@
             </div>
         {% endif %}
    {% endfor %}
-</div>
 
-<br>
-<!-- J'affiche la liste des articles par pièce !-->
-<div>
+    <div>
     {% for a in ListeArticles %}
         {% if a.nomPieceArticle == Piecedeliste.nomPiece %}
             <div>
-                {{ a.nomArticle }}
-                <button><a href="{% url 'addMissionPiece' Piecedeliste.nomPiece %}"> [+] </a></button>
+                {{ a.nomArticle | title }}<br>
+                <button><a href="{% url 'RemoveMissionArticle' Piecedeliste.article %}"> [-] </a></button>
+                {{ quantiteArticle.pieceMission }}
+                <button><a href="{% url 'addMissionArticle' Piecedeliste.article %}"> [+] </a></button>
 
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    <br>
+<div>
+    {% for b in quantiteArticle %}
+        {% if b.articlesMission.nomPieceArticle == Piecedeliste.nomPiece %}
+            <div>
+                {{ b.articlesMission.nomArticle | title }}<br>
+                <button><a href=#"> [-] </a></button>
+                {{ b.quantiteArticle }}
+                <button><a href=#"> [+] </a></button>
             </div>
         {% endif %}
     {% endfor %}
@@ -54,3 +66,4 @@
 
 
 {% endblock %}
+

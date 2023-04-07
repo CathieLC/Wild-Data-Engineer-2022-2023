@@ -58,7 +58,7 @@ class MissionArticle(models.Model):
     quantiteArticle = models.IntegerField(default=1)
 
     def __str__(self):
-        return f"{self.articlesMission.nomArticle} ({self.quantite})"
+        return f"{self.articlesMission.nomArticle} ({self.quantiteArticle})"
 
 class CommandeClient(models.Model):
     utilisateur = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -66,6 +66,13 @@ class CommandeClient(models.Model):
     missionValidee = models.BooleanField(default=False)
     dateMissionValisee = models.DateTimeField(blank=True, null=True)
 
+
+    def __str__(self):
+        return f"{self.utilisateur.username} {self.utilisateur.first_name}"
+
+class DétailListingClient(models.Model):
+    utilisateur = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    articlesClient = models.ManyToManyField(Articles)
 
     def __str__(self):
         return f"{self.utilisateur.username} {self.utilisateur.first_name}"
