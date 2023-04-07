@@ -4,19 +4,15 @@
 
 
 {% block content %}
+<a href="{% url 'home' %}" class="btn btn-outline-primary">Accueil</a>
 
 
     <div>
         {% for lieu in listePieces %}
 
-            <h4><a href="{% url 'detailspieces' lieu.slugPiece %}">{{ lieu.nomPiece }}</a></h4>
-            <p><a href="{% url 'detailspieces' lieu.slugPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 250px;"></a></p>
-            <button>
-                <p> <a href="{% url 'addMissionPiece' lieu.slugPiece %}"> [+] </a></p>
-            </button>
-            <button>
-                <p> <a href="{% url 'RemoveMissionPiece' lieu.slugPiece%}"> [-] </a></p>
-            </button>
+            <h4><a href="{% url 'addMissionPiece' lieu.nomPiece %}">{{ lieu.nomPiece }}</a></h4>
+            <p><a href="{% url 'addMissionPiece' lieu.nomPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 250px;"></a></p>
+
 
         {% endfor %}
     </div>

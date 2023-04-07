@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Pièces{% endblock title %}</title>
+
+
+{% block content %}
+
+<a href="{% url 'listePieces' %}" class="btn btn-outline-primary">Les pièces</a>
+
+
+            <h4><a href=#>{{ Piecedeliste.nomPiece }}</a></h4>
+            <p><a href=#> <img src="{{ Piecedeliste.imagePiece.url }}" alt="{{ Piecedeliste.nomPiece }}" style="max-width: 250px;"></a></p>
+
+
+
+            {% for i in quantitePiece %}
+
+                {% if i.pieceMission == Piecedeliste %}
+
+                    <button><p> <a href="{% url 'addMissionPiece' Piecedeliste.nomPiece %}"> [+] </a></p></button>
+
+                    {% if i.quantitePiece <= 0 %}
+
+                        {% url 'listePieces' as redirection_url %}
+                        {% if redirection_url %}
+
+                         <script>window.location.href = '{{ redirection_url }}';</script>
+                        {% endif %}
+
+                    {% else %}
+
+
+                    <h3>{{ i.pieceMission }} : {{ i.quantitePiece }}</h3>
+
+                    {% endif %}
+                    <button>
+                        <p> <a href="{% url 'RemoveMissionPiece' Piecedeliste.nomPiece%}"> [-] </a></p>
+                    </button>
+
+                {% endif %}
+
+           {% endfor %}
+
+
+{% endblock %}

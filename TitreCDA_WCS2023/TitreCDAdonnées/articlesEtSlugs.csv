@@ -1,0 +1,51 @@
+,article,volume (m3),pièce,slugArticle
+0,placard,0.5,cuisine,placard
+1,chaise,0.2,cuisine,chaise
+2,table de cuisine,0.7,cuisine,table-de-cuisine
+3,four micro-ondes,0.5,cuisine,four-micro-ondes
+4,four seul,0.7,cuisine,four-seul
+5,plaques de cuisson,0.02,cuisine,plaques-de-cuisson
+6,chaise haute,0.3,cuisine,chaise-haute
+7,réfrigérateur,1.5,cuisine,refrigerateur
+8,frigo américain,2.0,cuisine,frigo-americain
+9,congélateur,1.0,cuisine,congelateur
+10,cuisinière,0.5,cuisine,cuisiniere
+11,lave-vaisselle,0.5,cuisine,lave-vaisselle
+12,téléviseur,0.3,salon,televiseur
+13,meuble tele / hi-fi,0.5,salon,meuble-tele-hi-fi
+14,canape droit 1 place,0.8,salon,canape-droit-1-place
+15,canape angle + meridienne / 3 places,2.9,salon,canape-angle-meridienne-3-places
+16,meridienne seule,1.26,salon,meridienne-seule
+17,pouf,0.3,salon,pouf
+18,fauteuil,0.6,salon,fauteuil
+19,table basse,0.3,salon,table-basse
+20,bibliothèque,1.5,salon,bibliotheque
+21,commode 6 tiroirs,1.2,salon,commode-6-tiroirs
+22,armoire 1 porte,0.24,salon,armoire-1-porte
+23,lampe sur pied / luminaire,0.25,salon,lampe-sur-pied-luminaire
+24,piano,2.3,salon,piano
+25,table 2 personnes,0.41,salle à manger,table-2-personnes
+26,table 4 personnes,1.4,salle à manger,table-4-personnes
+27,buffet,2.0,salle à manger,buffet
+28,lit 1 place,1.0,chambre,lit-1-place
+29,lit 2 places,2.0,chambre,lit-2-places
+30,matelas 1 place,0.6,chambre,matelas-1-place
+31,matelas 2 places 140*200,0.7,chambre,matelas-2-places-140-200
+32,table de chevet,0.25,chambre,table-de-chevet
+33,lit superposé,2.0,chambre,lit-superpose
+34,banc - coffre de lit,0.2,chambre,banc-coffre-de-lit
+35,secrétaire - coiffeuse,1.0,chambre,secretaire-coiffeuse
+36,lampe de chevet,0.13,chambre,lampe-de-chevet
+37,lave-linge,0.5,bureau,lave-linge
+38,etagere murale,0.8,bureau,etagere-murale
+39,bureau,1.2,bureau,bureau
+40,fauteuil bureau,0.6,bureau,fauteuil-bureau
+41,ordianteur,0.1,bureau,ordianteur
+42,bibliothèque,1.5,bureau,bibliotheque
+43,table de jardin,0.8,divers-jardin,table-de-jardin
+44,chaise de jardin,0.25,divers-jardin,chaise-de-jardin
+45,parasol,0.15,divers-jardin,parasol
+46,barbecue plié,0.24,divers-jardin,barbecue-plie
+47,barbecue non pliable,0.68,divers-jardin,barbecue-non-pliable
+48,table de ping pong,2.0,divers-jardin,table-de-ping-pong
+49,balançoire démontée,1.1,divers-jardin,balancoire-demontee

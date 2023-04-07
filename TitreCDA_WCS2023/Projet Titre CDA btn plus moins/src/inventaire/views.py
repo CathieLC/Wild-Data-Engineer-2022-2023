@@ -8,6 +8,11 @@ def listePieces(request):
     listePieces = Piece.objects.all()
     return render(request, 'inventaire/liste_pieces.html', context={"listePieces": listePieces})
 
+def PiecesListe(request,nomPiece):
+    Piecedeliste = get_object_or_404(Piece, nomPiece=nomPiece)
+    quantitePiece = MissionPiece.objects.all()
+
+    return render(request, 'inventaire/liste_pieces2.html', context={"Piecedeliste": Piecedeliste, "quantitePiece": quantitePiece})
 
 
 def detailspieces(request,nomPieceArticle):
@@ -23,11 +28,11 @@ def detailPiecesArticle(request, nomPieceArticle):
     return render(request, "inventaire/articlesParLieu.html", context={"articleParPiece": articleParPiece})
 
 
-def addMissionPiece(request, nomPieceArticle):
+def addMissionPiece(request, nomPiece):
 
     # on récupère simplement l'utilisateur
     utilisateur = request.user
-    nomDePiece = get_object_or_404(Piece, nomPiece=nomPieceArticle)
+    nomDePiece = get_object_or_404(Piece, nomPiece=nomPiece)
     contenu, _ = CommandeClient.objects.get_or_create(utilisateur=utilisateur)
 
     mission, created = MissionPiece.objects.get_or_create(utilisateur=utilisateur,
@@ -39,12 +44,12 @@ def addMissionPiece(request, nomPieceArticle):
         mission.quantitePiece += 1
         mission.save()
 
-    return redirect(reverse("detailspieces", kwargs={"nomPieceArticle": nomPieceArticle}))
+    return redirect(reverse("PiecesListe", kwargs={"nomPiece": nomPiece}))
 
-def RemoveMissionPiece(request, nomPieceArticle):
+def RemoveMissionPiece(request, nomPiece):
 
     utilisateur = request.user
-    nomDePiece = get_object_or_404(Piece, nomPiece=nomPieceArticle)
+    nomDePiece = get_object_or_404(Piece, nomPiece=nomPiece)
     contenu, _ = CommandeClient.objects.get_or_create(utilisateur=utilisateur)
 
     mission, created = MissionPiece.objects.get_or_create(utilisateur=utilisateur,
@@ -56,7 +61,8 @@ def RemoveMissionPiece(request, nomPieceArticle):
         mission.quantitePiece -= 1
         mission.save()
 
-    return redirect(reverse("detailspieces", kwargs={"nomPieceArticle": nomPieceArticle}))
+    return redirect(reverse("PiecesListe", kwargs={"nomPiece": nomPiece}))
+    #return redirect("listePieces")
 
 #même chose avec nomArticle
 # def addMissionArticle(request, nomArticle):
