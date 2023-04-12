@@ -29,7 +29,7 @@
 
             {% else %}
 
-                {{ i.pieceMission }} : {{ i.quantitePiece }}
+                {{ i.pieceMission | title  }} : {{ i.quantitePiece }}
 
             {% endif %}
             <button> <a href="{% url 'addMissionPiece' Piecedeliste.nomPiece%}"> [+] </a></button></h3>
@@ -42,28 +42,31 @@
         {% if a.nomPieceArticle == Piecedeliste.nomPiece %}
             <div>
                 {{ a.nomArticle | title }}<br>
-                <button><a href="{% url 'RemoveMissionArticle' Piecedeliste.article %}"> [-] </a></button>
-                {{ quantiteArticle.pieceMission }}
-                <button><a href="{% url 'addMissionArticle' Piecedeliste.article %}"> [+] </a></button>
+                <button><a href="{% url 'addMissionArticle' a.slugArticle %}"> [+] </a></button>
+                {{ quantiteArticle.pieceMission }} <br>
+
+
 
             </div>
         {% endif %}
     {% endfor %}
     </div>
-    <br>
-<div>
-    {% for b in quantiteArticle %}
-        {% if b.articlesMission.nomPieceArticle == Piecedeliste.nomPiece %}
-            <div>
-                {{ b.articlesMission.nomArticle | title }}<br>
-                <button><a href=#"> [-] </a></button>
-                {{ b.quantiteArticle }}
-                <button><a href=#"> [+] </a></button>
-            </div>
-        {% endif %}
-    {% endfor %}
-</div>
+<!--    <br>-->
+<!--<div>-->
+<!--    {% for b in quantiteArticle %}-->
+<!--        {% if b.articlesMission.nomPieceArticle == Piecedeliste.nomPiece %}-->
+<!--            <div>-->
+<!--                {{ b.articlesMission.nomArticle | title }}<br>-->
+<!--                <button><a href=#"> [-] </a></button>-->
+<!--                {{ b.quantiteArticle }}-->
+<!--                <button><a href=#"> [+] </a></button>-->
+<!--            </div>-->
+<!--        {% endif %}-->
+<!--    {% endfor %}-->
+<!--</div>-->
 
 
 {% endblock %}
 
+<!--<button><a href="{% url 'RemoveMissionArticle' Piecedeliste.article %}"> [-] </a></button>-->
+<!--                <button><a href="{% url 'addMissionArticle' a.nomArticle %}"> [+] </a></button>-->

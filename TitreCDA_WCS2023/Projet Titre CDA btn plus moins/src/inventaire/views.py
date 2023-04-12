@@ -12,7 +12,7 @@ def listePieces(request):
 def PiecesListe(request,nomPiece):
     Piecedeliste = get_object_or_404(Piece, nomPiece=nomPiece)
     quantitePiece = MissionPiece.objects.all()
-    ListeArticles = Articles.objects.all()
+    ListeArticles = ArticlesV2.objects.all()
     quantiteArticle = MissionArticle.objects.all()
 
     return render(request, 'inventaire/liste_pieces2.html', context={"Piecedeliste": Piecedeliste,
@@ -75,13 +75,13 @@ def RemoveMissionPiece(request, nomPiece):
 def addMissionArticle(request, nomArticle):
     # on récupère simplement l'utilisateur
     utilisateur = request.user
-    nomDeLArticle = get_object_or_404(Articles, nomArticle=nomArticle)
+    nomDeLArticle = get_object_or_404(ArticlesV2, nomArticle=nomArticle)
     pieceArticle = get_object_or_404(Piece, nomPiece=nomDeLArticle.nomPieceArticle)
 
     contenu, _ = DétailListingClient.objects.get_or_create(utilisateur=utilisateur)
 
     missionA, created = MissionArticle.objects.get_or_create(utilisateur=utilisateur,
-                                                             pieceMission=pieceArticle,
+                                                             pieceMissionA=pieceArticle,
                                                              articlesMission=nomDeLArticle)
     if created:
         contenu.articlesClient.add(missionA)
