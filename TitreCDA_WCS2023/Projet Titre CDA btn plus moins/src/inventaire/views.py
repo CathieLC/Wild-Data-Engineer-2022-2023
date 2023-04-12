@@ -20,21 +20,6 @@ def PiecesListe(request,nomPiece):
                                                                      "ListeArticles": ListeArticles,
                                                                      "quantiteArticle": quantiteArticle})
 
-# def detailspieces(request,nomPieceArticle):
-#     ListeArticles = Articles.objects.all()
-#     articleParPiece = ListeArticles.filter(nomPieceArticle=nomPieceArticle)
-#     return render(request, "inventaire/articlesParLieu.html", context={"articleParPiece": articleParPiece})
-
-
-# def detailArticle(request, nomPieceArticle):
-#     ListeArticles = ArticlesV2.objects.all()
-#     quantiteArticle = MissionArticle.objects.all()
-#
-#     #return render(request, "inventaire/articlesParLieu.html", context={"articleParPiece": articleParPiece})
-#
-#     return render(request, 'inventaire/liste_pieces2.html', context={"ListeArticles": ListeArticles,
-#                                                                      "quantiteArticle": quantiteArticle})
-
 
 def addMissionPiece(request, nomPiece):
 
@@ -75,7 +60,7 @@ def RemoveMissionPiece(request, nomPiece):
 def addMissionArticle(request, nomArticle):
     # on récupère simplement l'utilisateur
     utilisateur = request.user
-    nomDeLArticle = get_object_or_404(ArticlesV2, nomArticle=nomArticle)
+    nomDeLArticle = get_object_or_404(ArticlesV2, slugArticle=nomArticle)
     pieceArticle = get_object_or_404(Piece, nomPiece=nomDeLArticle.nomPieceArticle)
 
     contenu, _ = DétailListingClient.objects.get_or_create(utilisateur=utilisateur)
@@ -87,27 +72,32 @@ def addMissionArticle(request, nomArticle):
         contenu.articlesClient.add(missionA)
         contenu.save()
     else:
-        missionA.quantiteArticle += 1
+        missionA.quantiteArticleA += 1
         missionA.save()
 
     return redirect(reverse("PiecesListe", kwargs={"nomPiece": pieceArticle}))
 
-def RemoveMissionArticle(request, nomArticle):
+def removeMissionArticle(request, nomArticle):
     # on récupère simplement l'utilisateur
     utilisateur = request.user
-    nomDeLArticle = get_object_or_404(Articles, nomArticle=nomArticle)
+    nomDeLArticle = get_object_or_404(ArticlesV2, slugArticle=nomArticle)
     pieceArticle = get_object_or_404(Piece, nomPiece=nomDeLArticle.nomPieceArticle)
 
     contenu, _ = DétailListingClient.objects.get_or_create(utilisateur=utilisateur)
 
     missionA, created = MissionArticle.objects.get_or_create(utilisateur=utilisateur,
-                                                             pieceMission=pieceArticle,
+                                                             pieceMissionA=pieceArticle,
                                                              articlesMission=nomDeLArticle)
     if created:
         contenu.articlesClient.add(missionA)
         contenu.save()
     else:
-        missionA.quantiteArticle -= 1
+        missionA.quantiteArticleA -= 1
         missionA.save()
+
+        if missionA.quantiteArticleA < 0:
+            missionA.quantiteArticleA = 0
+            missionA.save()
+
 
     return redirect(reverse("PiecesListe", kwargs={"nomPiece": pieceArticle}))

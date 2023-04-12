@@ -57,10 +57,11 @@ class MissionArticle(models.Model):
     utilisateur = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
     pieceMissionA = models.ForeignKey(Piece, on_delete=models.CASCADE)
     articlesMission = models.ForeignKey(ArticlesV2, on_delete=models.CASCADE)
-    quantiteArticle = models.IntegerField(default=1)
+    quantiteArticleA = models.IntegerField(default=1)
 
     def __str__(self):
-        return f"{self.articlesMission.nomArticle} ({self.quantiteArticle})"
+        return f"{self.articlesMission.nomArticle} ({self.quantiteArticleA})"
+
 
 class CommandeClient(models.Model):
     utilisateur = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -74,7 +75,7 @@ class CommandeClient(models.Model):
 
 class DétailListingClient(models.Model):
     utilisateur = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
-    articlesClient = models.ManyToManyField(Articles)
+    articlesClient = models.ManyToManyField(MissionArticle)
 
     def __str__(self):
         return f"{self.utilisateur.username} {self.utilisateur.first_name}"

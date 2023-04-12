@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from inventaire.views import listePieces, addMissionPiece,RemoveMissionPiece, PiecesListe, addMissionArticle, RemoveMissionArticle
+from inventaire.views import listePieces, addMissionPiece,RemoveMissionPiece, PiecesListe, addMissionArticle, removeMissionArticle
 from comptes.views import signup,login_user,logout_user
 from views.views import home
 from calcul_ton_volume import settings
@@ -25,6 +25,6 @@ urlpatterns = [
 
     # path('detailspieces/<str:nomPieceArticle>', detailspieces, name="detailspieces"),
     path("addMissionArticle/<str:nomArticle>/addMissionArticle", addMissionArticle, name="addMissionArticle"),
-    path("RemoveMissionArticle/<str:nomArticle>/RemoveMissionArticle", RemoveMissionArticle, name="RemoveMissionArticle"),
+    path("RemoveMissionArticle/<str:nomArticle>/removeMissionArticle", removeMissionArticle, name="removeMissionArticle"),
 
-              ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
