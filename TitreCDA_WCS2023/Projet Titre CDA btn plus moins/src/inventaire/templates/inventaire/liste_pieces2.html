@@ -40,24 +40,24 @@
 
         {% for a in ListeArticles %}
 
-            {% if a.nomPieceArticle == Piecedeliste.nomPiece  %}
+                    {% if a.nomPieceArticle == Piecedeliste.nomPiece  %}
 
-                <button><a href="{% url 'removeMissionArticle' a.slugArticle %}"> [-] </a></button>
+                        <button><a href="{% url 'removeMissionArticle' a.slugArticle %}"> [-] </a></button>
 
-                    {{ a.nomArticle | title }} :
+                            {{ a.nomArticle | title }} :
 
-                        {% for q in quantiteArticle %}
+                                {% for q in quantiteArticle %}
 
-                            {% if a.nomArticle == q.articlesMission.nomArticle %}
+                                    {% if a.nomArticle == q.articlesMission.nomArticle %}
 
-                                    {{ q.quantiteArticleA }}
+                                            {{ q.quantiteArticleA }}
 
-                            {% endif %}
+                                    {% endif %}
 
-                        {% endfor %}
+                                {% endfor %}
 
-                <button><a href="{% url 'addMissionArticle' a.slugArticle %}"> [+] </a></button><br>
-            {% endif %}
+                        <button><a href="{% url 'addMissionArticle' a.slugArticle %}"> [+] </a></button><br>
+                    {% endif %}
 
         {% endfor %}
 

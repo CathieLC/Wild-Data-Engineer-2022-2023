@@ -10,8 +10,8 @@
     <div>
         {% for lieu in listePieces %}
 
-            <h4><a href="{% url 'addMissionPiece' lieu.nomPiece %}">{{ lieu.nomPiece }}</a></h4>
-            <p><a href="{% url 'addMissionPiece' lieu.nomPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 250px;"></a></p>
+            <h4><a href="{% url 'addMissionPiece' lieu.nomPiece %}">{{ lieu.nomPiece }} </a></h4> <p>(Ajouter la pièce)</p>
+            <p><a href="{% url 'PiecesListe' lieu.nomPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 250px;"></a></p>
 
 
         {% endfor %}

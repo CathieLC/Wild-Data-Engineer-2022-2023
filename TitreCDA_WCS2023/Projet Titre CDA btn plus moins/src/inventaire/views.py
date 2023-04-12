@@ -95,7 +95,7 @@ def removeMissionArticle(request, nomArticle):
         missionA.quantiteArticleA -= 1
         missionA.save()
 
-        if missionA.quantiteArticleA < 0:
+        if missionA.quantiteArticleA < 0 :
             missionA.quantiteArticleA = 0
             missionA.save()
 
