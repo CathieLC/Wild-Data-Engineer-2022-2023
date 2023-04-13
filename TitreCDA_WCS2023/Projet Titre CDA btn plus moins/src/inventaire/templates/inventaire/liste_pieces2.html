@@ -4,8 +4,11 @@
 
 
 {% block content %}
-
+<a href="{% url 'home' %}" class="btn btn-outline-primary">Accueil</a>
 <a href="{% url 'listePieces' %}" class="btn btn-outline-primary">Les pièces</a>
+<a href="{% url 'listingCompletClient' %}" class="btn btn-outline-primary">Listing complet des articles</a>
+
+
 
 
     <h2>{{ Piecedeliste.nomPiece |title }}</h2>
@@ -16,55 +19,39 @@
         {% for i in quantitePiece %}
             {% if i.pieceMission == Piecedeliste %}
                 <div>
-                    <h3><button><a href="{% url 'RemoveMissionPiece' Piecedeliste.nomPiece %}"> [-] </a></button>
-
-                    {% if i.quantitePiece <= 0 %}
-
-                        {% url 'listePieces' as redirection_url %}
-
-                            {% if redirection_url %}
-                            <script>window.location.href = '{{ redirection_url }}';</script>
-                            {% endif %}
-
-                    {% else %}
-
-                        {{ i.pieceMission | title  }} : {{ i.quantitePiece }}
-
-                    {% endif %}
-                    <button> <a href="{% url 'addMissionPiece' Piecedeliste.nomPiece%}"> [+] </a></button></h3>
+                    <h3>
+                        <button><a href="{% url 'RemoveMissionPiece' Piecedeliste.nomPiece %}"> [-] </a></button>
+                            Nombre de {{ i.pieceMission | title  }} : {{ i.quantitePiece }}
+                        <button> <a href="{% url 'addMissionPiece' Piecedeliste.nomPiece%}"> [+] </a></button>
+                    </h3>
 
                 </div>
     </div>
 
-    <div class="articlesParPièce">
-
-        {% for a in ListeArticles %}
-
+    {% for i in quantitePiece %}
+        {% if i.pieceMission.nomPiece == Piecedeliste.nomPiece %}
+            <div class="articlesParPièce">
+                {% for a in ListeArticles %}
                     {% if a.nomPieceArticle == Piecedeliste.nomPiece  %}
-
                         <button><a href="{% url 'removeMissionArticle' a.slugArticle %}"> [-] </a></button>
-
                             {{ a.nomArticle | title }} :
-
                                 {% for q in quantiteArticle %}
-
                                     {% if a.nomArticle == q.articlesMission.nomArticle %}
-
                                             {{ q.quantiteArticleA }}
-
                                     {% endif %}
-
                                 {% endfor %}
-
                         <button><a href="{% url 'addMissionArticle' a.slugArticle %}"> [+] </a></button><br>
                     {% endif %}
+                {% endfor %}
+        {% endif %}
+    {% endfor %}
 
-        {% endfor %}
 
-    </div>
 
-       {% endif %}
-   {% endfor %}
+
+
+    {% endif %}
+{% endfor %}
 </div>
 {% endblock %}
 

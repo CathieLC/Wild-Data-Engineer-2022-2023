@@ -5,13 +5,21 @@
 
 {% block content %}
 <a href="{% url 'home' %}" class="btn btn-outline-primary">Accueil</a>
+<a href="{% url 'listingCompletClient' %}" class="btn btn-outline-primary">Listing complet des articles</a>
 
 
-    <div>
+    <div class="BlockPieces">
         {% for lieu in listePieces %}
-
-            <h4><a href="{% url 'addMissionPiece' lieu.nomPiece %}">{{ lieu.nomPiece }} </a></h4> <p>(Ajouter la pièce)</p>
+            <h4><a href="{% url 'PiecesListe' lieu.nomPiece %}">{{ lieu.nomPiece }}</a></h4>
             <p><a href="{% url 'PiecesListe' lieu.nomPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 250px;"></a></p>
+            <p><a href="{% url 'addMissionPiece' lieu.nomPiece %}"> (Ajouter la pièce) </a> / <a href="{% url 'RemoveMissionPiece' lieu.nomPiece %}"> (Retirer la pièce) </a> </p>
+            <p> Nombre actuel de {{ lieu.nomPiece }} :
+
+                    {% for q in quantitePiece %}
+                        {% if q.pieceMission.nomPiece == lieu.nomPiece %}
+                            {{ q.quantitePiece }}
+                        {% endif %}
+                    {% endfor %}</p>
 
 
         {% endfor %}

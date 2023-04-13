@@ -9,14 +9,14 @@ from django.utils.text import slugify
 import string, random
 
 
-class Articles(models.Model):
-    nomArticle = models.CharField(max_length=100)
-    volume = models.DecimalField(max_digits=6, decimal_places=2)
-    imageArticle = models.ImageField(upload_to="img_inventaire", blank=True, null=True)
-    nomPieceArticle = models.CharField(max_length=50, blank=True, null=True)
-
-    def __str__(self):
-        return f"{self.nomArticle} ({self.nomPieceArticle})"
+# class Articles(models.Model):
+#     nomArticle = models.CharField(max_length=100)
+#     volume = models.DecimalField(max_digits=6, decimal_places=2)
+#     imageArticle = models.ImageField(upload_to="img_inventaire", blank=True, null=True)
+#     nomPieceArticle = models.CharField(max_length=50, blank=True, null=True)
+#
+#     def __str__(self):
+#         return f"{self.nomArticle} ({self.nomPieceArticle})"
 
 class Piece(models.Model):
     nomPiece = models.CharField(max_length=50)
@@ -42,8 +42,6 @@ class ArticlesV2(models.Model):
 
 
 
-
-
 class MissionPiece(models.Model):
     utilisateur = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
     pieceMission = models.ForeignKey(Piece, on_delete=models.CASCADE)
@@ -51,6 +49,7 @@ class MissionPiece(models.Model):
 
     def __str__(self):
         return f"{self.pieceMission.nomPiece} ({self.quantitePiece})"
+
 
 
 class MissionArticle(models.Model):
@@ -73,6 +72,7 @@ class CommandeClient(models.Model):
     def __str__(self):
         return f"{self.utilisateur.username} {self.utilisateur.first_name}"
 
+
 class DétailListingClient(models.Model):
     utilisateur = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
     articlesClient = models.ManyToManyField(MissionArticle)
@@ -80,7 +80,9 @@ class DétailListingClient(models.Model):
     def __str__(self):
         return f"{self.utilisateur.username} {self.utilisateur.first_name}"
 
-
+    def delete(self, *args, **kwargs):
+        self.articlesClient.clear()
+        super().delete(*args, **kwargs)
 
 
 

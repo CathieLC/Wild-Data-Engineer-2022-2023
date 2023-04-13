@@ -1,12 +1,14 @@
 from django.db.models.functions import Lower
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Articles, Piece, CommandeClient, MissionPiece, ArticlesV2, MissionArticle, DétailListingClient
+from .models import Piece, CommandeClient, MissionPiece, ArticlesV2, MissionArticle, DétailListingClient
 from django.urls import reverse
 
 
 def listePieces(request):
     listePieces = Piece.objects.all()
-    return render(request, 'inventaire/liste_pieces.html', context={"listePieces": listePieces})
+    quantitePiece = MissionPiece.objects.all()
+    return render(request, 'inventaire/liste_pieces.html', context={"listePieces": listePieces,
+                                                                    "quantitePiece": quantitePiece,})
 
 
 def PiecesListe(request,nomPiece):
@@ -50,12 +52,33 @@ def RemoveMissionPiece(request, nomPiece):
     if created:
         contenu.piecesPanier.add(mission)
         contenu.save()
+        return redirect(reverse("PiecesListe", kwargs={"nomPiece": nomPiece}))
     else:
         mission.quantitePiece -= 1
         mission.save()
+        if mission.quantitePiece <= 0:
+            mission.quantitePiece = 0
+            mission.save()
+            return redirect("listePieces")
 
     return redirect(reverse("PiecesListe", kwargs={"nomPiece": nomPiece}))
-    #return redirect("listePieces")
+
+
+def listingCompletClient(request):
+    listing = get_object_or_404(DétailListingClient, utilisateur=request.user)
+    return render(request, "inventaire/listingcompletclient.html", context={"listing": listing.articlesClient.all()})
+
+
+def delete_MissionPiece(request):
+    pass
+    # #je récupère le panier
+    # listing = request.user.DétailListingClient
+    #
+    # if cart:
+    #     cart.delete()
+    #
+    # return redirect('index')
+
 
 def addMissionArticle(request, nomArticle):
     # on récupère simplement l'utilisateur
