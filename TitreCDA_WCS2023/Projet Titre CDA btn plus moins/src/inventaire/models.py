@@ -40,8 +40,6 @@ class ArticlesV2(models.Model):
     def __str__(self):
         return f"{self.id} - {self.nomArticle} ({self.nomPieceArticle})"
 
-
-
 class MissionPiece(models.Model):
     utilisateur = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
     pieceMission = models.ForeignKey(Piece, on_delete=models.CASCADE)
@@ -49,7 +47,6 @@ class MissionPiece(models.Model):
 
     def __str__(self):
         return f"{self.pieceMission.nomPiece} ({self.quantitePiece})"
-
 
 
 class MissionArticle(models.Model):
