@@ -24,11 +24,21 @@
              <a href="http://127.0.0.1:8000/admin/" class="btn btn-outline-primary">Admin</a>
         </div>
     </div>
-{% endif %}
+
 
 <div class="container-fluid">
+
     {% block content %}
+
     {% endblock %}
+
+{% else %}
+<h2> Désolé, vous n'êtes pas connecté ou inscrit</h2>
+<a href="{% url 'login' %}" class="btn btn-outline-primary">Connexion</a>
+<a href="{% url 'signup' %}" class="btn btn-outline-primary">Inscription</a>
+
+
+{% endif %}
 </div>
 
 </body>

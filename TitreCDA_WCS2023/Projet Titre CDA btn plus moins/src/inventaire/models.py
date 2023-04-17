@@ -23,6 +23,9 @@ class Piece(models.Model):
     slugPiece = models.CharField(max_length=50)
     imagePiece = models.ImageField(upload_to="media/img_pieces", blank=True, null=True)
 
+    class Meta:
+        verbose_name_plural = "Liste complète des pièces"
+
     def __str__(self):
         return self.nomPiece
 
@@ -36,6 +39,8 @@ class ArticlesV2(models.Model):
     nomPieceArticle = models.CharField(max_length=50, blank=True, null=True)
     Piece_id = models.ForeignKey(Piece, default=19, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name_plural = "Liste complète des articles"
 
     def __str__(self):
         return f"{self.id} - {self.nomArticle} ({self.nomPieceArticle})"
@@ -65,19 +70,29 @@ class CommandeClient(models.Model):
     missionValidee = models.BooleanField(default=False)
     dateMissionValisee = models.DateTimeField(blank=True, null=True)
 
+    class Meta:
+        verbose_name = "Détail pièce par client"
+        verbose_name_plural = "Détail pièces par client"
 
     def __str__(self):
-        return f"{self.utilisateur.username} {self.utilisateur.first_name}"
+        return self.utilisateur.username
 
 
 class DétailListingClient(models.Model):
     utilisateur = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
     articlesClient = models.ManyToManyField(MissionArticle)
 
+    class Meta:
+        verbose_name = "Détail article par client"
+        verbose_name_plural = "Détail articles par client"
+
     def __str__(self):
-        return f"{self.utilisateur.username} {self.utilisateur.first_name}"
+        return self.utilisateur.username
 
     def delete(self, *args, **kwargs):
+        for article in articlesClient.all():
+            article.save()
+
         self.articlesClient.clear()
         super().delete(*args, **kwargs)
 

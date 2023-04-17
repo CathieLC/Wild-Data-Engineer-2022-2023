@@ -17,7 +17,9 @@
     <ul>
     {% for article in listing %}
         {% if article.quantiteArticleA > 0 %}
-            <li type="circle">{{ article.articlesMission.nomArticle | title }} : {{ article.quantiteArticleA }}</li>
+            <li type="circle">{{ article.articlesMission.nomArticle | title }} : {{ article.quantiteArticleA }}
+        {% else %}
+            {{ article.articlesMission.nomArticle | title }} : : {{ article.quantiteArticleA }}</li>
         {% endif %}
     {% endfor %}
     </ul>

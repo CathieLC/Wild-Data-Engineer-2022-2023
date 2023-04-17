@@ -1,8 +1,16 @@
-{% extends 'base.html' %}
+{% load static %}
 
-<title>{% block title %}Accueil{% endblock title %}</title>
+<!DOCTYPE html>
 
-{% block content %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'inventaire/css/bootstrap.css' %}"/>
+    <title>Accueil</title>
+</head>
+
+
+<body>
 
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
@@ -25,5 +33,5 @@
     </div>
 </section>
 
-{% endblock %}
-
+</body>
+</html>

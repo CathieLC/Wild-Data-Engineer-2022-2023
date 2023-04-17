@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Piece, CommandeClient, MissionPiece, ArticlesV2, MissionArticle, DétailListingClient
 from django.urls import reverse
 from django.contrib import messages
-
+from django.http import HttpResponse
 
 
 def listePieces(request):
@@ -68,7 +68,11 @@ def RemoveMissionPiece(request, nomPiece):
 
 def listingCompletPièces(request):
     listingP = MissionPiece.objects.all()
-    return render(request, "inventaire/listingcompletpieces.html", context={"listingP": listingP})
+
+    if listingP :
+        return render(request, "inventaire/listingcompletpieces.html", context={"listingP": listingP})
+    else :
+        return HttpResponse("Vous n'avez pas sélectionné de pièce")
 
 def deleteListingPieces(request):
     # je récupère le panier DétailListingClient pour l'utilisateur connecté
@@ -76,6 +80,8 @@ def deleteListingPieces(request):
 
     if PiècesClient.all():
         PiècesClient.all().delete()
+        return redirect('listePieces')
+
     return redirect('listePieces')
 
 def addMissionArticle(request, nomArticle):
@@ -117,22 +123,29 @@ def removeMissionArticle(request, nomArticle):
         missionA.save()
 
         if missionA.quantiteArticleA < 0 :
-            missionA.quantiteArticleA = 0
+            # missionA.quantiteArticleA = 0
+            missionA.quantiteArticleA.delete()
             missionA.save()
+            return redirect("listePieces")
 
     return redirect(reverse("PiecesListe", kwargs={"nomPiece": pieceArticle}))
 
 def listingCompletArticles(request):
-    listing = get_object_or_404(DétailListingClient, utilisateur=request.user)
-    return render(request, "inventaire/listingcompletarticles.html", context={"listing": listing.articlesClient.all()})
+    listingA = MissionArticle.objects.all()
+    if listingA:
+        return render(request, "inventaire/listingcompletarticles.html", context={"listing": listingA})
+    else :
+        return HttpResponse("Vous n'avez pas sélectionné d'articles")
+
+
 
 def deleteListingArticles(request):
     # je récupère le panier DétailListingClient pour l'utilisateur connecté
-    listingClient = get_object_or_404(DétailListingClient, utilisateur=request.user)
+    # listingClient = get_object_or_404(DétailListingClient, utilisateur=request.user)
+    listingClient = MissionArticle.objects.all()
 
-    if listingClient.articlesClient.all():
-        listingClient.articlesClient.all().delete()
-        # messages.success(request, "Le panier a été vidé avec succès.")
-    # else:
-    #     messages.warning(request, "Le panier est déjà vide.")
+    if listingClient.all():
+        listingClient.all().delete()
+        return redirect('listePieces')
+
     return redirect('listePieces')
