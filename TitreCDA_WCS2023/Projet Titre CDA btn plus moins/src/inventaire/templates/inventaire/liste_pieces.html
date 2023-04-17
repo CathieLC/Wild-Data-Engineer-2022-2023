@@ -11,6 +11,7 @@
 
     <div class="BlockPieces">
         {% for lieu in listePieces %}
+
             <h4><a href="{% url 'PiecesListe' lieu.nomPiece %}">{{ lieu.nomPiece }}</a></h4>
             <p><a href="{% url 'PiecesListe' lieu.nomPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 250px;"></a></p>
             <p><a href="{% url 'addMissionPiece' lieu.nomPiece %}"> (Ajouter la pièce) </a> / <a href="{% url 'RemoveMissionPiece' lieu.nomPiece %}"> (Retirer la pièce) </a> </p>

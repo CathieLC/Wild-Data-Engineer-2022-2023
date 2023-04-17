@@ -5,9 +5,11 @@ from django.urls import reverse
 from django.contrib import messages
 
 
+
 def listePieces(request):
     listePieces = Piece.objects.all()
     quantitePiece = MissionPiece.objects.all()
+
     return render(request, 'inventaire/liste_pieces.html', context={"listePieces": listePieces,
                                                                     "quantitePiece": quantitePiece,})
 
@@ -53,7 +55,7 @@ def RemoveMissionPiece(request, nomPiece):
     if created:
         contenu.piecesPanier.add(mission)
         contenu.save()
-        return redirect(reverse("PiecesListe", kwargs={"nomPiece": nomPiece}))
+        return redirect("listePieces")
     else:
         mission.quantitePiece -= 1
         mission.save()
