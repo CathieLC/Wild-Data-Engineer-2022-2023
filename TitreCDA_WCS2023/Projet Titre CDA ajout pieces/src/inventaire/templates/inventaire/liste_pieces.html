@@ -12,23 +12,35 @@
     <a href="{% url 'listingCompletArticles' %}" class="btn btn-outline-primary">Listing complet des articles</a>
 
 
+  <div class="row equal-height ">
+
+
         <div class="BlockPieces">
             {% for lieu in listePieces %}
 
-                <h4><a href="{% url 'PiecesListe' lieu.nomPiece %}">{{ lieu.nomPiece }}</a></h4>
-                <p><a href="{% url 'PiecesListe' lieu.nomPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 250px;"></a></p>
-                <p><a href="{% url 'addMissionPiece' lieu.nomPiece %}"> (Ajouter la pièce) </a> / <a href="{% url 'RemoveMissionPiece' lieu.nomPiece %}"> (Retirer la pièce) </a> </p>
-                <p> Nombre actuel de {{ lieu.nomPiece }} :
+            {% if forloop.counter0|divisibleby:2 %}
+            </div><div class="col-md-4">
+            {% endif %}
 
-                        {% for q in quantitePiece %}
-                            {% if q.pieceMission.nomPiece == lieu.nomPiece %}
-                                {{ q.quantitePiece }} - utilisateur_id : {{ q.utilisateur }}
-                            {% endif %}
-                        {% endfor %}</p>
+            <div class="item border"
+                 <br><br>
+                <h2><a href="{% url 'PiecesListe' lieu.nomPiece %}">{{ lieu.nomPiece | title }}</a></h2>
+                <p><a href="{% url 'PiecesListe' lieu.nomPiece %}"> <img src="{{ lieu.imagePiece.url }}" alt="{{ lieu.nomPiece }}" style="max-width: 200px;"></a></p>
+                <h4><a href="{% url 'RemoveMissionPiece' lieu.nomPiece %}"> [-]</a> {{ lieu.nomPiece | title }} :
 
+                    {% for q in quantitePiece %}
+                        {% if q.pieceMission.nomPiece == lieu.nomPiece %}
+                            {{ q.quantitePiece }}
+                        {% endif %}
+                    {% endfor %}
+
+                <a href="{% url 'addMissionPiece' lieu.nomPiece %}"> [+] </a> </h4><br>
+            </div>
 
             {% endfor %}
         </div>
+    </div>
+
 
 
 {% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Pièces{% endblock title %}</title>
+
+
+{% block content %}
+
+
+
+<!--Test!-->
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Calcul ton volume !</h1>
+            <p class="lead text-muted">[+] Pour ajouter une pièce <br> [-] Pour en retirer une <br/>
+                Cliquez ensuite sur le nom de la pièce pour commencer l'inventaire
+            </p>
+            <p>
+              <a href="{% url 'place' %}" class="btn btn-outline-primary">Liste des pièces</a>
+              <a href="{% url 'inventaire-per-place' %}" class="btn btn-outline-primary">Liste des articles</a>
+            </p>
+      </div>
+    </div>
+  </section>
+
+<div class="container">
+    <div class="card-deck">
+        <div class="row row-cols-sm-1 row-cols-sm-2 row-cols-sm-3 justify-content-center">
+            <div class="col" >
+                <div class="card text-center">
+                    <img  src="{% static 'img/living-room.png' %}" class="img-fluid">
+                        <div class="card-body">
+                            <h4 class="card-text"> <!-- Récupérer la liste de mes pièces !-->
+                                {% for place in valeurs_distinctes %}
+                                    {% if forloop.first %}
+                                        <a href="{% url 'inventaire-per-place' %}?place={{ place }}">{{ place }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </h4>
+                        </div>
+                        <div class="btn-group-justify">
+                          <button type="button" class="btn btn-outline-primary btn-sm">Ajouter [+]</button>
+                          <button type="button" class="btn btn-outline-primary btn-sm">Retirer [-]</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

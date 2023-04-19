@@ -1,0 +1,51 @@
+,article,volume (m3),piece_nom,piece_id,slugArticle
+0,placard,0.5,cuisine,19,placard
+1,chaise,0.2,cuisine,19,chaise
+2,table de cuisine,0.7,cuisine,19,table-de-cuisine
+3,four micro-ondes,0.5,cuisine,19,four-micro-ondes
+4,four seul,0.7,cuisine,19,four-seul
+5,plaques de cuisson,0.02,cuisine,19,plaques-de-cuisson
+6,chaise haute,0.3,cuisine,19,chaise-haute
+7,réfrigérateur,1.5,cuisine,19,refrigerateur
+8,frigo américain,2.0,cuisine,19,frigo-americain
+9,congélateur,1.0,cuisine,19,congelateur
+10,cuisinière,0.5,cuisine,19,cuisiniere
+11,lave-vaisselle,0.5,cuisine,19,lave-vaisselle
+12,téléviseur,0.3,salon,20,televiseur
+13,meuble tele / hi-fi,0.5,salon,20,meuble-tele-hi-fi
+14,canape droit 1 place,0.8,salon,20,canape-droit-1-place
+15,canape angle + meridienne / 3 places,2.9,salon,20,canape-angle-meridienne-3-places
+16,meridienne seule,1.26,salon,20,meridienne-seule
+17,pouf,0.3,salon,20,pouf
+18,fauteuil,0.6,salon,20,fauteuil
+19,table basse,0.3,salon,20,table-basse
+20,bibliothèque,1.5,salon,20,bibliotheque
+21,commode 6 tiroirs,1.2,salon,20,commode-6-tiroirs
+22,armoire 1 porte,0.24,salon,20,armoire-1-porte
+23,lampe sur pied / luminaire,0.25,salon,20,lampe-sur-pied-luminaire
+24,piano,2.3,salon,20,piano
+25,table 2 personnes,0.41,salle à manger,21,table-2-personnes
+26,table 4 personnes,1.4,salle à manger,21,table-4-personnes
+27,buffet,2.0,salle à manger,21,buffet
+28,lit 1 place,1.0,chambre,22,lit-1-place
+29,lit 2 places,2.0,chambre,22,lit-2-places
+30,matelas 1 place,0.6,chambre,22,matelas-1-place
+31,matelas 2 places 140*200,0.7,chambre,22,matelas-2-places-140-200
+32,table de chevet,0.25,chambre,22,table-de-chevet
+33,lit superposé,2.0,chambre,22,lit-superpose
+34,banc - coffre de lit,0.2,chambre,22,banc-coffre-de-lit
+35,secrétaire - coiffeuse,1.0,chambre,22,secretaire-coiffeuse
+36,lampe de chevet,0.13,chambre,22,lampe-de-chevet
+37,lave-linge,0.5,bureau,23,lave-linge
+38,etagere murale,0.8,bureau,23,etagere-murale
+39,bureau,1.2,bureau,23,bureau
+40,fauteuil bureau,0.6,bureau,23,fauteuil-bureau
+41,ordianteur,0.1,bureau,23,ordianteur
+42,bibliothèque,1.5,bureau,23,bibliotheque
+43,table de jardin,0.8,divers-jardin,24,table-de-jardin
+44,chaise de jardin,0.25,divers-jardin,24,chaise-de-jardin
+45,parasol,0.15,divers-jardin,24,parasol
+46,barbecue plié,0.24,divers-jardin,24,barbecue-plie
+47,barbecue non pliable,0.68,divers-jardin,24,barbecue-non-pliable
+48,table de ping pong,2.0,divers-jardin,24,table-de-ping-pong
+49,balançoire démontée,1.1,divers-jardin,24,balancoire-demontee

@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import path
 
 from inventaire.views import listePieces, addMissionPiece, RemoveMissionPiece, PiecesListe,  listingCompletPièces, deleteListingPieces
-from inventaire.views import addMissionArticle, removeMissionArticle, listingCompletArticles, deleteListingArticles
+from inventaireArticles.views import addMissionArticle, removeMissionArticle, listingCompletArticles, deleteListingArticles
 from comptes.views import signup,login_user,logout_user
 from views.views import home
 from calcul_ton_volume import settings
