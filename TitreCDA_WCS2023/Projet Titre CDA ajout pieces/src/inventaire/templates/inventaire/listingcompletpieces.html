@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Listing Complet{% endblock title %}</title>
+
+
+{% block content %}
+
+<div class="boutons">
+    <a href="{% url 'home' %}" class="btn btn-outline-primary">Accueil</a>
+    <a href="{% url 'listePieces' %}" class="btn btn-outline-primary">Les pièces</a>
+    <a href="{% url 'listingCompletArticles' %}" class="btn btn-outline-primary">Listing complet des articles</a>
+    <a href="{% url 'deleteListingPieces' %}" class="btn btn-outline-danger">Supprimer les pièces</a>
+</div>
+
+
+<div class="listeCompletePièces">
+
+    <ul>
+
+        {% for p in listingP %}
+            {% if p.quantitePiece > 0 %}
+                <li type="circle">{{ p.pieceMission.nomPiece | title }} : {{ p.quantitePiece }}</li>
+        <p>utilisateur Id pour vérification : {{ p.utilisateur }}</p>
+            {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

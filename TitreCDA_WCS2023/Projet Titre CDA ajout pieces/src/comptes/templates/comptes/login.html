@@ -1,0 +1,26 @@
+{% extends 'base_non_inscrit.html' %}
+
+{% block content %}
+
+
+<h3 class="fw-light">Bienvenue sur la page de connexion de calcul ton volume !</h3>
+
+    <form method="post">
+    {% csrf_token %}
+
+        <p>
+            <label for="username">Nom :</label>
+            <input type="text" name="username" id="username" required>
+        </p>
+        <p>
+            <label for="password">Mot de passe :</label>
+            <input type="password" name="password" id="password" required>
+        </p>
+
+
+            <p><input class="btn btn-primary" type="submit" value="Connexion"></p>
+            <p>Si n'avez pas de compte :</p>
+            <a href="{% url 'signup' %}" class="btn btn-outline-primary">Inscription</a>
+    </form>
+
+{% endblock %}

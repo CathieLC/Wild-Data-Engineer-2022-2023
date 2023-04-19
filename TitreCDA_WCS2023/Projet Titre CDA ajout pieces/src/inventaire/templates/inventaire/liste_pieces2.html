@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Pièces{% endblock title %}</title>
+
+
+{% block content %}
+<a href="{% url 'home' %}" class="btn btn-outline-primary">Accueil</a>
+<a href="{% url 'listePieces' %}" class="btn btn-outline-primary">Les pièces</a>
+<a href="{% url 'listingCompletArticles' %}" class="btn btn-outline-primary">Listing complet des articles</a>
+<a href="{% url 'listingCompletPièces' %}" class="btn btn-outline-primary">Listing complet des pièces</a>
+
+
+
+
+
+
+
+    <h2>{{ Piecedeliste.nomPiece |title }}</h2>
+    <p><a href=#> <img src="{{ Piecedeliste.imagePiece.url }}" alt="{{ Piecedeliste.nomPiece }}" style="max-width: 250px;"></a></p>
+
+<div>
+    <div class="PièceDétail">
+        {% for i in quantitePiece %}
+            {% if i.pieceMission == Piecedeliste %}
+                <div>
+                    <h3>nom du client : {{ utilisateurPL }}</h3>
+                    <h3>
+                        <button><a href="{% url 'RemoveMissionPiece' Piecedeliste.nomPiece %}"> [-] </a></button>
+                            Nombre de {{ i.pieceMission | title  }} : {{ i.quantitePiece }}
+                        <button> <a href="{% url 'addMissionPiece' Piecedeliste.nomPiece%}"> [+] </a></button>
+                    </h3>
+
+                </div>
+    </div>
+
+    {% for i in quantitePiece %}
+        {% if i.pieceMission.nomPiece == Piecedeliste.nomPiece %}
+            <div class="articlesParPièce">
+                {% for a in ListeArticles %}
+                    {% if a.nomPieceArticle == Piecedeliste.nomPiece  %}
+                        <button><a href="{% url 'removeMissionArticle' a.slugArticle %}"> [-] </a></button>
+                            {{ a.nomArticle | title }} :
+                                {% for q in quantiteArticle %}
+                                    {% if a.nomArticle == q.articlesMission.nomArticle %}
+                                            {{ q.quantiteArticleA }}
+                                    {% endif %}
+                                {% endfor %}
+                        <button><a href="{% url 'addMissionArticle' a.slugArticle %}"> [+] </a></button><br>
+                    {% endif %}
+                {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+
+
+
+
+    {% endif %}
+{% endfor %}
+</div>
+
+
+{% endblock %}
+
+

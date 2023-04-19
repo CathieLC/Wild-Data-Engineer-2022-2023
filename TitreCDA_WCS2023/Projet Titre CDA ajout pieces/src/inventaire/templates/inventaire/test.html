@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Bloc de test{% endblock title %}</title>
+
+
+{% block content %}
+
+    <h2>{{ detailpiece.piece }}</h2>
+    <img src ="{{ detailpiece.image_item.url }}" alt="{{ detailpiece.image_item }}" style="max-width: 200px;">
+
+
+
+
+{% endblock %}
