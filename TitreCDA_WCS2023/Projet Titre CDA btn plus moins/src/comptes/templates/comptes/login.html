@@ -1,9 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'base_non_inscrit.html' %}
 
 {% block content %}
 
-<h3>Bienvenue sur la page de connexion de calcul ton volume !</h3>
-<h3 class="fw-light">Connexion</h3>
+
+<h3 class="fw-light">Bienvenue sur la page de connexion de calcul ton volume !</h3>
+
     <form method="post">
     {% csrf_token %}
 
@@ -15,8 +16,11 @@
             <label for="password">Mot de passe :</label>
             <input type="password" name="password" id="password" required>
         </p>
-            <button type="submit">Connexion</button>
-            <p> Je n'ai pas de compte  <button><a href="{% url 'signup' %}">S'inscrire</a></button></p>
+
+
+            <p><input class="btn btn-primary" type="submit" value="Connexion"></p>
+            <p>Si n'avez pas de compte :</p>
+            <a href="{% url 'signup' %}" class="btn btn-outline-primary">Inscription</a>
     </form>
 
 {% endblock %}

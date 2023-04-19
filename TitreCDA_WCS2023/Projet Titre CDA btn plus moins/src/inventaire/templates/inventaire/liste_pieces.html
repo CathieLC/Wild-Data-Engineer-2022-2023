@@ -22,7 +22,7 @@
 
                         {% for q in quantitePiece %}
                             {% if q.pieceMission.nomPiece == lieu.nomPiece %}
-                                {{ q.quantitePiece }}
+                                {{ q.quantitePiece }} - utilisateur_id : {{ q.utilisateur }}
                             {% endif %}
                         {% endfor %}</p>
 

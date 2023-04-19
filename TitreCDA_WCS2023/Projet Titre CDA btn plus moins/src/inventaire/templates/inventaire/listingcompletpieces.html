@@ -16,9 +16,11 @@
 <div class="listeCompletePièces">
 
     <ul>
+
         {% for p in listingP %}
             {% if p.quantitePiece > 0 %}
                 <li type="circle">{{ p.pieceMission.nomPiece | title }} : {{ p.quantitePiece }}</li>
+        <p>utilisateur Id pour vérification : {{ p.utilisateur }}</p>
             {% endif %}
     {% endfor %}
     </ul>

@@ -1,13 +1,6 @@
-{% load static %}
+{% extends 'base_non_inscrit.html' %}
 
-<!DOCTYPE html>
-
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'inventaire/css/bootstrap.css' %}"/>
-    <title>Accueil</title>
-</head>
+{% block content %}
 
 
 <body>
@@ -21,11 +14,16 @@
             <a href="{% url 'listePieces' %}" class="btn btn-outline-primary">Les pièces</a>
             <a href="{% url 'home' %}" class="btn btn-outline-primary">Client (en création)</a>
             <a href="http://127.0.0.1:8000/admin/" class="btn btn-outline-primary">Admin</a>
+
+          <div class="imageCamion">
+              <img src="media/camion déménagement.png" alt="image camion" style="max-width: 400px;">
+          </div>
         {% else %}
 
         <h3 class="fw-light">Avant de pouvoir accéder au contenu de cette application, vous devez vous connecter</h3><br>
-        <button><a href="{% url 'login' %}">Se connecter</a></button>
-        <button><a href="{% url 'signup' %}">Inscription</a></button>
+
+            <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">Se connecter</a>
+            <a href="{% url 'signup' %}" class="btn btn-outline-primary btn-lg">Inscription</a>
 
         {% endif %}
 
@@ -33,5 +31,4 @@
     </div>
 </section>
 
-</body>
-</html>
+{% endblock %}

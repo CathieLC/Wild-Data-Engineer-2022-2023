@@ -13,6 +13,8 @@
 
 
 
+
+
     <h2>{{ Piecedeliste.nomPiece |title }}</h2>
     <p><a href=#> <img src="{{ Piecedeliste.imagePiece.url }}" alt="{{ Piecedeliste.nomPiece }}" style="max-width: 250px;"></a></p>
 
@@ -21,6 +23,7 @@
         {% for i in quantitePiece %}
             {% if i.pieceMission == Piecedeliste %}
                 <div>
+                    <h3>nom du client : {{ utilisateurPL }}</h3>
                     <h3>
                         <button><a href="{% url 'RemoveMissionPiece' Piecedeliste.nomPiece %}"> [-] </a></button>
                             Nombre de {{ i.pieceMission | title  }} : {{ i.quantitePiece }}
@@ -55,6 +58,8 @@
     {% endif %}
 {% endfor %}
 </div>
+
+
 {% endblock %}
 
 

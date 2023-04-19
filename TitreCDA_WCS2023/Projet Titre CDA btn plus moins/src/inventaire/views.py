@@ -4,37 +4,43 @@ from .models import Piece, CommandeClient, MissionPiece, ArticlesV2, MissionArti
 from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponse
+from comptes.models import Client
+
+
 
 
 def listePieces(request):
     listePieces = Piece.objects.all()
-    quantitePiece = MissionPiece.objects.all()
+    quantitePiece = MissionPiece.objects.filter(utilisateur=request.user)
 
     return render(request, 'inventaire/liste_pieces.html', context={"listePieces": listePieces,
-                                                                    "quantitePiece": quantitePiece,})
-
+                                                                        "quantitePiece": quantitePiece,})
 
 def PiecesListe(request,nomPiece):
+
     Piecedeliste = get_object_or_404(Piece, nomPiece=nomPiece)
-    quantitePiece = MissionPiece.objects.all()
+    quantitePiece = MissionPiece.objects.filter(utilisateur=request.user)
     ListeArticles = ArticlesV2.objects.all()
-    quantiteArticle = MissionArticle.objects.all()
+    quantiteArticle = MissionArticle.objects.filter(utilisateur=request.user)
+
 
     return render(request, 'inventaire/liste_pieces2.html', context={"Piecedeliste": Piecedeliste,
-                                                                     "quantitePiece": quantitePiece,
-                                                                     "ListeArticles": ListeArticles,
-                                                                     "quantiteArticle": quantiteArticle})
-
+                                                                      "quantitePiece": quantitePiece,
+                                                                      "ListeArticles": ListeArticles,
+                                                                      "quantiteArticle": quantiteArticle})
 
 def addMissionPiece(request, nomPiece):
 
     # on récupère simplement l'utilisateur
-    utilisateur = request.user
+    user = request.user
     nomDePiece = get_object_or_404(Piece, nomPiece=nomPiece)
-    contenu, _ = CommandeClient.objects.get_or_create(utilisateur=utilisateur)
+    # Commande = CommandeClient.objects.filter(utilisateur=request.user)
 
-    mission, created = MissionPiece.objects.get_or_create(utilisateur=utilisateur,
+    contenu, _ = CommandeClient.objects.get_or_create(utilisateur=user)
+
+    mission, created = MissionPiece.objects.get_or_create(utilisateur=user,
                                                           pieceMission=nomDePiece)
+
     if created:
         contenu.piecesPanier.add(mission)
         contenu.save()
@@ -44,13 +50,16 @@ def addMissionPiece(request, nomPiece):
 
     return redirect(reverse("PiecesListe", kwargs={"nomPiece": nomPiece}))
 
+
+
 def RemoveMissionPiece(request, nomPiece):
 
-    utilisateur = request.user
+    user = request.user
     nomDePiece = get_object_or_404(Piece, nomPiece=nomPiece)
-    contenu, _ = CommandeClient.objects.get_or_create(utilisateur=utilisateur)
 
-    mission, created = MissionPiece.objects.get_or_create(utilisateur=utilisateur,
+    contenu, _ = CommandeClient.objects.get_or_create(utilisateur=user)
+
+    mission, created = MissionPiece.objects.get_or_create(utilisateur=user,
                                                           pieceMission=nomDePiece)
     if created:
         contenu.piecesPanier.add(mission)
@@ -67,7 +76,7 @@ def RemoveMissionPiece(request, nomPiece):
     return redirect(reverse("PiecesListe", kwargs={"nomPiece": nomPiece}))
 
 def listingCompletPièces(request):
-    listingP = MissionPiece.objects.all()
+    listingP = MissionPiece.objects.filter(utilisateur=request.user)
 
     if listingP :
         return render(request, "inventaire/listingcompletpieces.html", context={"listingP": listingP})
@@ -76,7 +85,7 @@ def listingCompletPièces(request):
 
 def deleteListingPieces(request):
     # je récupère le panier DétailListingClient pour l'utilisateur connecté
-    PiècesClient = MissionPiece.objects.all()
+    PiècesClient = MissionPiece.objects.filter(utilisateur=request.user)
 
     if PiècesClient.all():
         PiècesClient.all().delete()
@@ -131,18 +140,16 @@ def removeMissionArticle(request, nomArticle):
     return redirect(reverse("PiecesListe", kwargs={"nomPiece": pieceArticle}))
 
 def listingCompletArticles(request):
-    listingA = MissionArticle.objects.all()
+    listingA = MissionArticle.objects.filter(utilisateur=request.user)
     if listingA:
         return render(request, "inventaire/listingcompletarticles.html", context={"listing": listingA})
     else :
         return HttpResponse("Vous n'avez pas sélectionné d'articles")
 
-
-
 def deleteListingArticles(request):
     # je récupère le panier DétailListingClient pour l'utilisateur connecté
     # listingClient = get_object_or_404(DétailListingClient, utilisateur=request.user)
-    listingClient = MissionArticle.objects.all()
+    listingClient = MissionArticle.objects.filter(utilisateur=request.user)
 
     if listingClient.all():
         listingClient.all().delete()

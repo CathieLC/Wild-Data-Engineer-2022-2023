@@ -9,6 +9,7 @@ from django.utils.text import slugify
 import string, random
 
 
+
 # class Articles(models.Model):
 #     nomArticle = models.CharField(max_length=100)
 #     volume = models.DecimalField(max_digits=6, decimal_places=2)
@@ -19,6 +20,7 @@ import string, random
 #         return f"{self.nomArticle} ({self.nomPieceArticle})"
 
 class Piece(models.Model):
+
     nomPiece = models.CharField(max_length=50)
     slugPiece = models.CharField(max_length=50)
     imagePiece = models.ImageField(upload_to="media/img_pieces", blank=True, null=True)
@@ -68,7 +70,7 @@ class CommandeClient(models.Model):
     utilisateur = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
     piecesPanier = models.ManyToManyField(MissionPiece)
     missionValidee = models.BooleanField(default=False)
-    dateMissionValisee = models.DateTimeField(blank=True, null=True)
+    dateMissionValidee = models.DateTimeField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Détail pièce par client"
