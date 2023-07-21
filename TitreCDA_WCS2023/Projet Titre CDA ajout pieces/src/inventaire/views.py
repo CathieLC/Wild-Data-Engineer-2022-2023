@@ -8,7 +8,8 @@ from django.http import HttpResponse
 from comptes.models import Client
 
 
-
+def index(request):
+    return render(request, "inventaire/index.html")
 
 def listePieces(request):
     listePieces = Piece.objects.all()
